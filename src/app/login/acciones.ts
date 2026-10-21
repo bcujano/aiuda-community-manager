@@ -25,6 +25,7 @@ export async function registrar(fd: FormData) {
   const { data, error } = await supabase.auth.signUp({
     email: String(fd.get('correo') ?? '').trim(),
     password: clave,
+    options: { emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL ?? ''}/auth/callback` },
   })
   if (error) ir('No pudimos crear la cuenta. Revisa el correo e inténtalo de nuevo.')
   if (!data.session) ir('Te enviamos un correo para confirmar tu cuenta.')
