@@ -32,6 +32,13 @@ Regla: las que empiezan por `NEXT_PUBLIC_` llegan al navegador (solo URLs y clav
 ## Motor de generación (Railway, cuando se porte)
 `MOTOR_URL` · `MOTOR_SECRET` (header `x-motor-secret`, comparación en tiempo constante) · `OPENAI_API_KEY` (solo si se usa imagen/voz de OpenAI) · credenciales del proveedor de video elegido.
 
+## Stack confirmado (2026-10-21): Vercel · Supabase · GitHub · Railway · n8n · Chatwoot · Anthropic · OpenAI · Gemini
+| Variable | Para qué |
+|---|---|
+| `GEMINI_API_KEY` | Imágenes/video/visión y tareas baratas (ver reparto de modelos en el plan §6) |
+| `N8N_BASE_URL` · `N8N_WEBHOOK_SECRET` | Disparadores y automatizaciones en n8n (secreto en header, no en URL) |
+| `CHATWOOT_BASE_URL` · `CHATWOOT_API_TOKEN` · `CHATWOOT_ACCOUNT_ID` · `CHATWOOT_WEBHOOK_SECRET` | AiUDA Inbox: conversaciones y agentes humanos en Chatwoot |
+
 ## Cobro y correo
 `STRIPE_SECRET_KEY` · `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` · `STRIPE_WEBHOOK_SECRET` · `STRIPE_PRICE_STARTER` · `STRIPE_PRICE_PRO` · `STRIPE_PRICE_AGENCY` · `RESEND_API_KEY` · `EMAIL_FROM`.
 

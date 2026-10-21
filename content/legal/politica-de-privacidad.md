@@ -1,9 +1,8 @@
 # Política de privacidad — AiUDA
 
-> BORRADOR para publicar en el sitio. Reemplaza los campos `[ ]`. Revisión por abogado antes de enviar a Meta/TikTok/Google.
 
-**Responsable:** [razón social], [país], [dirección]. Contacto de privacidad: [correo].
-**Última actualización:** [fecha].
+**Responsable:** Tres Dos Uno Soluciones Inmobiliarias S.A.S. (nombre comercial AiUDA), Ecuador, [dirección por completar]. Contacto de privacidad: contacto@321archlab.com.
+**Última actualización:** 21 de octubre de 2026.
 
 ## 1. Qué es AiUDA
 AiUDA es una plataforma que ayuda a negocios a planificar y publicar contenido, gestionar anuncios y responder comentarios y mensajes en sus redes sociales.
@@ -25,19 +24,19 @@ Usamos modelos de IA de proveedores externos para generar textos, imágenes y re
 Solo con proveedores necesarios para operar (alojamiento, base de datos, IA, pagos, correo) y con las propias plataformas (Meta, TikTok, Google) cuando tú lo autorizas. No vendemos datos personales.
 
 ## 6. Conservación
-Mientras la cuenta esté activa y el tiempo necesario por obligaciones legales. Al desconectar una red, eliminamos sus tokens; al cerrar la cuenta, eliminamos tus datos en un máximo de [30] días.
+Mientras la cuenta esté activa y el tiempo necesario por obligaciones legales. Al desconectar una red, eliminamos sus tokens; al cerrar la cuenta, eliminamos tus datos en un máximo de 30 días.
 
 ## 7. Seguridad
 Cifrado de tokens, control de acceso por rol, registro de auditoría y separación de datos entre clientes.
 
 ## 8. Tus derechos
-Acceso, rectificación, eliminación, oposición, limitación y portabilidad, según la ley aplicable ([LOPDP Ecuador / RGPD / otras]). Escribe a [correo]. Para eliminar datos, ver `/eliminacion-de-datos`.
+Acceso, rectificación, eliminación, oposición, limitación y portabilidad, según la ley aplicable (Ley Orgánica de Protección de Datos Personales de Ecuador y, cuando aplique, el RGPD). Escribe a contacto@321archlab.com. Para eliminar datos, ver [/eliminacion-de-datos](https://aiuda.emprendimientum.com/eliminacion-de-datos).
 
 ## 9. Transferencias internacionales
 Los datos pueden procesarse fuera de tu país con proveedores que aplican garantías adecuadas.
 
 ## 10. Menores
-El servicio no está dirigido a menores de [18] años.
+El servicio no está dirigido a menores de 18 años.
 
 ## 11. Cambios
 Publicaremos aquí los cambios y la fecha de actualización.
