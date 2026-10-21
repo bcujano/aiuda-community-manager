@@ -99,17 +99,36 @@ alter table marcas         enable row level security;
 alter table conexiones     enable row level security;
 alter table auditoria      enable row level security;
 
-create policy org_leer   on organizaciones for select using (es_miembro(id));
+drop policy if exists org_leer on organizaciones;
+create policy org_leer on organizaciones for select using (es_miembro(id));
+drop policy if exists org_editar on organizaciones;
+drop policy if exists org_editar on organizaciones;
 create policy org_editar on organizaciones for update using (tiene_rol(id, array['owner'])) with check (tiene_rol(id, array['owner']));
 
+drop policy if exists miembros_leer on miembros;
+drop policy if exists miembros_leer on miembros;
 create policy miembros_leer on miembros for select using (es_miembro(org_id));
+drop policy if exists miembros_admin on miembros;
+drop policy if exists miembros_admin on miembros;
 create policy miembros_admin on miembros for all using (tiene_rol(org_id, array['owner'])) with check (tiene_rol(org_id, array['owner']));
 
-create policy marcas_leer  on marcas for select using (es_miembro(org_id));
+drop policy if exists marcas_leer on marcas;
+create policy marcas_leer on marcas for select using (es_miembro(org_id));
+drop policy if exists marcas_escribir on marcas;
+drop policy if exists marcas_escribir on marcas;
 create policy marcas_escribir on marcas for all
   using (tiene_rol(org_id, array['owner','editor'])) with check (tiene_rol(org_id, array['owner','editor']));
 
 -- Los tokens solo los toca el servidor (service role). Aquí solo se ve que existe la conexión.
+drop policy if exists conexiones_leer on conexiones;
+drop policy if exists conexiones_leer on conexiones;
 create policy conexiones_leer on conexiones for select using (tiene_rol(org_id, array['owner','editor']));
 
+drop policy if exists auditoria_leer on auditoria;
+drop policy if exists auditoria_leer on auditoria;
 create policy auditoria_leer on auditoria for select using (tiene_rol(org_id, array['owner','aprobador']));
+
+-- El token cifrado no se expone ni a usuarios autenticados: solo el servidor (service role) lo lee.
+revoke select on conexiones from anon, authenticated;
+grant select (id, org_id, marca_id, plataforma, cuenta_externa_id, nombre_cuenta, vence_en, estado, permisos, creada_en)
+  on conexiones to authenticated;

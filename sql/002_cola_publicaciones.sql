@@ -92,9 +92,17 @@ end $$;
 alter table piezas        enable row level security;
 alter table publicaciones enable row level security;
 
+drop policy if exists piezas_leer on piezas;
+drop policy if exists piezas_leer on piezas;
 create policy piezas_leer on piezas for select using (es_miembro(org_id));
+drop policy if exists piezas_escribir on piezas;
+drop policy if exists piezas_escribir on piezas;
 create policy piezas_escribir on piezas for insert with check (tiene_rol(org_id, array['owner','editor']));
+drop policy if exists piezas_editar on piezas;
+drop policy if exists piezas_editar on piezas;
 create policy piezas_editar on piezas for update
   using (tiene_rol(org_id, array['owner','editor'])) with check (tiene_rol(org_id, array['owner','editor']));
+drop policy if exists publicaciones_leer on publicaciones;
+drop policy if exists publicaciones_leer on publicaciones;
 create policy publicaciones_leer on publicaciones for select using (es_miembro(org_id));
 -- Escritura de publicaciones: solo servidor (service role).
