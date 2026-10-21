@@ -144,7 +144,7 @@ Entregables para la solicitud (los preparamos en Fase 4): plan de negocio, model
 4. Nacionalidad/residencia del fundador para afinar la ruta de visa.
 
 ## 12. Stack y datos de la empresa (confirmado 2026-10-21)
-- **Empresa:** Tres Dos Uno Soluciones Inmobiliarias S.A.S. · **Dominio:** aiuda.emprendimientum.com · **Contacto:** contacto@321archlab.com (nota: el correo está en otro dominio que el sitio; Meta/Google lo aceptan, pero un correo @emprendimientum.com se ve más sólido para la revisión).
+- **Empresa:** Tres Dos Uno Soluciones Inmobiliarias S.A.S. · **Dominio:** aiuda.emprendimientum.com · **Contacto:** contacto@emprendimientum.com (corregido a @emprendimientum.com; el buzón debe existir antes de enviar la revisión).
 - **Plataformas:** Vercel (web/API) · Supabase gratuito (datos/auth/storage) · GitHub (`main` única) · Railway (motor Python, n8n, Chatwoot si se autoaloja) · n8n (orquestación) · Chatwoot (bandeja) · Anthropic, OpenAI y Gemini (IA).
 - **Reparto de modelos (hipótesis, medir costo por pieza):** Claude → estrategia, redacción de marca y respuestas (calidad/seguridad); Gemini → visión, imágenes y tareas masivas baratas; OpenAI → imagen/voz donde rinda mejor. Interfaz de proveedor intercambiable; todo costo se registra por pieza.
 - **AiUDA Inbox sobre Chatwoot:** Chatwoot aporta bandeja, canales (IG, FB, WhatsApp, web), asignación humana y etiquetas; AiUDA aporta el agente IA con reglas, base de conocimiento y escalamiento. A validar: límites de RAM de Railway y que el canal de Instagram de Chatwoot use la misma app de Meta (una sola App Review).

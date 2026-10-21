@@ -7,3 +7,9 @@ a { color:var(--acento) }
 .pie { border-top:1px solid var(--borde); color:var(--suave); font-size:14px; padding:24px 16px; text-align:center }
 .pie a { margin:0 8px }
 h1 { line-height:1.2 } .suave { color:var(--suave) }
+.formulario { display:grid; gap:14px }
+.formulario label { display:grid; gap:6px; font-size:14px; color:var(--suave) }
+input, select { padding:10px 12px; border:1px solid var(--borde); border-radius:8px; background:var(--fondo); color:var(--texto); font:inherit }
+button { padding:10px 16px; border:0; border-radius:8px; background:var(--acento); color:#fff; font:inherit; cursor:pointer }
+button.secundario { background:transparent; color:var(--acento); border:1px solid var(--borde) }
+.tarjeta { border:1px solid var(--borde); border-radius:12px; padding:16px; margin:16px 0 }

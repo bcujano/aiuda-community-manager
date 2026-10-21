@@ -1,7 +1,7 @@
 # Política de privacidad — AiUDA
 
 
-**Responsable:** Tres Dos Uno Soluciones Inmobiliarias S.A.S. (nombre comercial AiUDA), Ecuador, [dirección por completar]. Contacto de privacidad: contacto@321archlab.com.
+**Responsable:** Tres Dos Uno Soluciones Inmobiliarias S.A.S. (nombre comercial AiUDA), Ecuador, Whymper 3236, Quito. Contacto de privacidad: contacto@emprendimientum.com.
 **Última actualización:** 21 de octubre de 2026.
 
 ## 1. Qué es AiUDA
@@ -30,7 +30,7 @@ Mientras la cuenta esté activa y el tiempo necesario por obligaciones legales. 
 Cifrado de tokens, control de acceso por rol, registro de auditoría y separación de datos entre clientes.
 
 ## 8. Tus derechos
-Acceso, rectificación, eliminación, oposición, limitación y portabilidad, según la ley aplicable (Ley Orgánica de Protección de Datos Personales de Ecuador y, cuando aplique, el RGPD). Escribe a contacto@321archlab.com. Para eliminar datos, ver [/eliminacion-de-datos](https://aiuda.emprendimientum.com/eliminacion-de-datos).
+Acceso, rectificación, eliminación, oposición, limitación y portabilidad, según la ley aplicable (Ley Orgánica de Protección de Datos Personales de Ecuador y, cuando aplique, el RGPD). Escribe a contacto@emprendimientum.com. Para eliminar datos, ver [/eliminacion-de-datos](https://aiuda.emprendimientum.com/eliminacion-de-datos).
 
 ## 9. Transferencias internacionales
 Los datos pueden procesarse fuera de tu país con proveedores que aplican garantías adecuadas.

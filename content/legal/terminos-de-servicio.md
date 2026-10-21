@@ -14,4 +14,4 @@
 11. **Garantías y responsabilidad.** El servicio se ofrece «tal cual»; la responsabilidad se limita al máximo permitido por la ley y, salvo dolo, al importe pagado en los últimos 12 meses.
 12. **Terminación.** Podemos suspender por incumplimiento o riesgo de seguridad.
 13. **Ley aplicable.** República del Ecuador.
-14. **Contacto.** contacto@321archlab.com.
+14. **Contacto.** contacto@emprendimientum.com.
