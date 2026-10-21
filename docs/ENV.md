@@ -23,6 +23,9 @@ Regla: las que empiezan por `NEXT_PUBLIC_` llegan al navegador (solo URLs y clav
 | `META_WEBHOOK_VERIFY_TOKEN` | Texto largo aleatorio que tú inventas; Meta lo usa para validar el webhook |
 | `META_CONFIG_ID` | Solo si se usa Facebook Login for Business |
 
+## Instagram (Instagram Login, ruta A)
+`INSTAGRAM_APP_ID` · `INSTAGRAM_APP_SECRET`: en la app de Meta → producto Instagram → «API setup with Instagram login» (son distintos del App ID de Facebook). Redirect URI a registrar allí: `<NEXT_PUBLIC_APP_URL>/api/conexiones/instagram/callback`.
+
 ## Con TikTok
 `TIKTOK_CLIENT_KEY` · `TIKTOK_CLIENT_SECRET` (Content Posting/Login) · `TIKTOK_ADS_APP_ID` · `TIKTOK_ADS_SECRET` (Marketing API).
 

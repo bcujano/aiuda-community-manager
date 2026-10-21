@@ -30,7 +30,7 @@ Mientras la cuenta esté activa y el tiempo necesario por obligaciones legales. 
 Cifrado de tokens, control de acceso por rol, registro de auditoría y separación de datos entre clientes.
 
 ## 8. Tus derechos
-Acceso, rectificación, eliminación, oposición, limitación y portabilidad, según la ley aplicable (Ley Orgánica de Protección de Datos Personales de Ecuador y, cuando aplique, el RGPD). Escribe a contacto@emprendimientum.com. Para eliminar datos, ver [/eliminacion-de-datos](https://aiuda.emprendimientum.com/eliminacion-de-datos).
+Acceso, rectificación, eliminación, oposición, limitación y portabilidad, según la ley aplicable (Ley Orgánica de Protección de Datos Personales de Ecuador y, cuando aplique, el RGPD). Escribe a contacto@emprendimientum.com. Para eliminar datos, ver [/eliminacion-de-datos](/eliminacion-de-datos).
 
 ## 9. Transferencias internacionales
 Los datos pueden procesarse fuera de tu país con proveedores que aplican garantías adecuadas.

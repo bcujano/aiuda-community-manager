@@ -4,8 +4,8 @@ import { crearMarca, crearOrganizacion } from './acciones'
 
 export const dynamic = 'force-dynamic'
 
-export default async function Panel({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
-  const { error } = await searchParams
+export default async function Panel({ searchParams }: { searchParams: Promise<{ error?: string; ok?: string }> }) {
+  const { error, ok } = await searchParams
   const supabase = await supabaseServidor()
   const { data: membresia } = await supabase
     .from('miembros')
@@ -16,12 +16,16 @@ export default async function Panel({ searchParams }: { searchParams: Promise<{ 
   const { data: marcas } = org
     ? await supabase.from('marcas').select('id, nombre, sector').eq('org_id', org.id).order('creada_en')
     : { data: [] }
+  const { data: conexiones } = org
+    ? await supabase.from('conexiones').select('marca_id, plataforma, nombre_cuenta, estado, vence_en').eq('org_id', org.id)
+    : { data: [] }
 
   return (
     <main className="contenedor">
       <form action={salir} style={{ float: 'right' }}><button className="secundario">Salir</button></form>
       <h1>{org ? org.nombre : 'Bienvenido a AiUDA'}</h1>
       {error && <p role="alert" style={{ color: '#c0392b' }}>{error}</p>}
+      {ok && <p role="status" style={{ color: '#1e8e5a' }}>{ok}</p>}
 
       {!org ? (
         <form action={crearOrganizacion} className="tarjeta formulario">
@@ -35,7 +39,15 @@ export default async function Panel({ searchParams }: { searchParams: Promise<{ 
           <h2>Tus negocios</h2>
           {(marcas ?? []).length === 0 && <p className="suave">Aún no tienes ninguno. Agrega el primero para empezar el diagnóstico.</p>}
           {(marcas ?? []).map((m) => (
-            <div key={m.id} className="tarjeta"><strong>{m.nombre}</strong>{m.sector && <span className="suave"> · {m.sector}</span>}</div>
+            <div key={m.id} className="tarjeta">
+              <strong>{m.nombre}</strong>{m.sector && <span className="suave"> · {m.sector}</span>}
+              {(conexiones ?? []).filter((c) => c.marca_id === m.id).map((c) => (
+                <p key={c.plataforma + c.nombre_cuenta} className="suave" style={{ margin: '8px 0 0' }}>
+                  {c.plataforma === 'instagram' ? 'Instagram' : c.plataforma}: @{c.nombre_cuenta} · {c.estado === 'activa' ? 'conectada' : 'hay que reconectar'}
+                </p>
+              ))}
+              <p style={{ margin: '12px 0 0' }}><a href={`/api/conexiones/instagram/inicio?marca=${m.id}`}>Conectar Instagram</a></p>
+            </div>
           ))}
           <form action={crearMarca} className="tarjeta formulario">
             <input type="hidden" name="org_id" value={org.id} />
