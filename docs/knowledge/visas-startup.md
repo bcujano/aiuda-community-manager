@@ -46,3 +46,31 @@ Tracción real (clientes de pago, MRR), innovación defendible, equipo, plan fin
 - Canadá SUV: https://betakit.com/canada-suspends-start-up-visa-as-feds-look-to-transition-to-new-program/ · https://www.imidaily.com/north-america/canada-suspends-start-up-visa-hints-at-new-replacement-in-2026/ · https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/start-visa/eligibility
 - Portugal: https://mcs.pt/?p=9997 · https://wise.com/in/blog/portugal-startup-visa · https://portugalbuyersagent.com/portugal-startup-visa/
 - España: https://www.migrate.es/visas/entrepreneur-startup-visa/ · https://www.frenchtechbarcelona.com/en/guides/entrepreneur-visa-spain-2026 · https://www.apextax.co/spain/knowledge-hub/spain-startup-visa
+
+## Plan de avance (decidido 2026-10-21) — fundador ecuatoriano
+Prioridad por plazo: **España y Portugal avanzan ya**; **EE. UU. y Canadá se mantienen vivos** con preparación y vigilancia.
+
+### España (avanza)
+1. Estructura: sociedad en España (SL) o intención demostrable de crearla; **plan de negocio** en español, modelo financiero a 3–5 años, pitch deck, demo, métricas.
+2. Solicitud de **informe ENISA** de empresa innovadora (carácter innovador, escalabilidad, impacto, equipo).
+3. Documentos del fundador: pasaporte, **antecedentes penales de Ecuador apostillados**, seguro médico, medios económicos, título/CV. Ecuador usa apostilla (Convenio de La Haya): confirmar trámite en la Cancillería.
+4. Presentación: vía unidad de emprendedores o consulado (confirmar con abogado qué aplica).
+5. Entregable de AiUDA: `docs/visa/espana/` (privado) con plan, financiero y evidencias.
+
+### Portugal (avanza)
+1. Opción A: **StartUp Visa** vía incubadora certificada por IAPMEI. Opción B: **D2** (más simple, sin incubadora).
+2. Pasos comunes: NIF portugués, cuenta bancaria, alojamiento, seguro, antecedentes apostillados, plan de negocio, fondos de subsistencia.
+3. Elegir A/B con abogado según tracción y velocidad.
+
+### EE. UU. (se mantiene)
+- Ruta principal: **O-1A**. Construir desde ya el expediente: prensa, premios/hackathons, charlas, métricas, contratos, cartas de clientes e inversores, evidencia de rol crítico.
+- Estructura: sociedad en EE. UU. (p. ej. Delaware C-corp) para actuar como empleador/agente; evaluar con abogado.
+- E-2 solo con socio mayoritario de país con tratado (abogado).
+- Acción: abrir consulta con abogado de inmigración para evaluar O-1A, EB-1A/EB-2 NIW e IER.
+
+### Canadá (se mantiene)
+- Vigilar el **nuevo piloto de Start-Up Visa de alto impacto** y reglas de IRCC; si abre, tener listos: tracción, carta de apoyo de entidad designada, inglés (IELTS/CELPIP).
+- Explorar programas provinciales de emprendedores y C11 (sin verificar). Revisión trimestral de canada.ca.
+
+### Siguiente paso concreto
+Contratar **una consulta** con abogado de inmigración (EE. UU./Canadá) y **una** con asesor de startups en España/Portugal. Yo preparo el resumen del caso y las preguntas.
