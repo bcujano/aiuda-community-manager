@@ -50,5 +50,8 @@ Dueño: Byron. Objetivo: producto ganador y dossier para startup visa (EE. UU., 
 ## Stack objetivo
 Next.js (App Router) + React + TypeScript + Tailwind + shadcn/ui · Supabase (Postgres + Auth + Storage, RLS) · motor Python (FastAPI) para generación · Vercel + Railway. Detalle en el plan §6.
 
+## Git
+Una sola rama: **`main`**. Byron no quiere ramas ni PRs: se trabaja y se sube directo a `main`.
+
 ## Estado
 Fase: **planificación terminada, ejecución por iniciar** (Fase 0). Ver plan §7.

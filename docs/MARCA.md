@@ -1,5 +1,7 @@
 # Marca AiUDA
 
+> **DECIDIDO (2026-10-21): Línea A.** AiUDA Social · Ads · Inbox · Studio · Insights · Setup · Agency. Las líneas B y C quedan como alternativas descartadas.
+
 **AiUDA** = marca madre (escritura: *AiUDA*; «ayuda» en español, «AI» dentro). Cada especialidad lleva el prefijo AiUDA y un apellido que dice qué hace. Siempre en español primero.
 
 ## Propuestas de familia (elegir una línea; recomendada: A)
