@@ -111,3 +111,34 @@ Entregables para la solicitud (los preparamos en Fase 4): plan de negocio, model
 - https://startupvisa.barcelona/startup-visa/saas-founders
 - https://www.apextax.co/spain/knowledge-hub/spain-startup-visa
 - https://www.startupblink.com/blog/best-startup-visa-and-relocation-programs/
+
+---
+
+## 9. Decisiones aprobadas por Byron (2026-10-21) — mandan sobre lo anterior
+
+1. **Marca:** AiUDA es la marca madre; cada especialidad con nombre propio (`docs/MARCA.md`, propuestas A/B/C; recomendada A: AiUDA Social, Ads, Inbox, Studio, Insights, Setup, Agency).
+2. **Visas:** se persiguen **todas las rutas reales** (EE. UU., Canadá, España, Portugal) → `docs/knowledge/visas-startup.md`. Hallazgos clave: E-2 cerrada para Ecuador; Start-Up Visa de Canadá pausada desde 2026; España (ENISA) y Portugal (D2/StartUp Visa) son las rutas más viables a corto plazo; O-1A para EE. UU.
+3. **Código:** crm-321 y postpro-321 son **referencia de solo lectura**; se copia y mejora aquí. No se mueve ni edita nada allá.
+4. **Base de datos:** Supabase gratuito que ya tiene AiUDA (cuidar Disk IO y Storage; sin binarios en tablas).
+5. **Alcance ampliado:**
+   - **AiUDA Ads automático** (Meta + TikTok + Google): plan, creación en pausa, reglas con topes, informes. Ver `knowledge/ads-meta-tiktok-google.md`.
+   - **Diagnóstico y setup personalizado** por cliente/negocio: `knowledge/onboarding-diagnostico.md`.
+   - **Inbox:** respuestas automáticas a comentarios y DMs con escalamiento: `knowledge/dms-comentarios-objeciones.md`.
+   - **Conexión por API a todo** (administrador de anuncios, mensajes, comentarios, insights).
+   - **Todo Marketing iA de crm-321 se incluye** (mapa en `knowledge/repos-reference.md`) y se mejora.
+   - **UI/UX de vanguardia:** `knowledge/ui-ux-referencias.md`.
+6. **Conocimiento persistente:** `CLAUDE.md` en la raíz + `docs/knowledge/` (9 archivos).
+
+## 10. Fases actualizadas (optimizando recursos)
+- **Fase 0 (semana 1):** repo Next.js + Supabase gratuito con `org_id`+RLS; auth; **iniciar App Review de Meta, scope review de TikTok y developer token de Google** (son los trámites más lentos); registrar marca.
+- **Fase 1 (sem 2–4):** portar Director + cola + publicador idempotente (copia adaptada); Brand Kit; alta por URL + diagnóstico (AiUDA Setup).
+- **Fase 2 (sem 5–7):** Inbox (comentarios/DMs) + Insights con Lecturas.
+- **Fase 3 (sem 8–11):** AiUDA Ads (Meta primero; luego TikTok y Google) con reglas y topes; beta con clientes.
+- **Fase 4 (sem 12–15):** lanzamiento, modo agencia, dossier de visa con métricas reales.
+- Principio de recursos: una sola pasada por tarea, modelos pequeños donde alcancen, caché de IA, lotes en Supabase, colas en vez de sondeos frecuentes.
+
+## 11. Pendientes que bloquean ejecución
+1. Confirmar nombre de la línea (A/B/C) y búsqueda de marca/dominio.
+2. Acceso de **lectura** a `bcujano/postpro-321` (hoy no está en el alcance de la sesión).
+3. Credenciales del Supabase de AiUDA (URL y claves) por variables de entorno; nunca en el repo.
+4. Nacionalidad/residencia del fundador para afinar la ruta de visa.
