@@ -7,7 +7,7 @@ PGBIN=$(ls -d /usr/lib/postgresql/*/bin 2>/dev/null | tail -1 || true); [ -n "$P
 run() { if [ "$(id -u)" = 0 ]; then su postgres -c "PATH=$PATH $*"; else bash -c "$*"; fi; }
 D=$(mktemp -d); trap 'run "pg_ctl -D $D stop -m immediate" >/dev/null 2>&1 || true; rm -rf "$D"' EXIT
 chmod 700 "$D"; [ "$(id -u)" = 0 ] && chown postgres "$D" 2>/dev/null || true
-run "initdb -D $D -A trust >/dev/null"
+run "initdb -D $D -U postgres -A trust >/dev/null"
 run "pg_ctl -D $D -o '-p 54399 -k /tmp -c listen_addresses=' -l $D/log -w start >/dev/null"
 P="psql -h /tmp -p 54399 -U postgres -v ON_ERROR_STOP=1 -q"
 run "$P -d postgres -c 'create database t'" ; P="$P -d t"
