@@ -43,7 +43,9 @@ export default async function Plan({ params, searchParams }: { params: Promise<{
           <input type="hidden" name="marca" value={id} />
           {plan?.estado === 'error' && <p className="alerta-error">El último intento falló. No se cobró nada que no se vea en tu registro de IA.</p>}
           <p>La IA propone el plan con lo que escribiste en la ficha. Cada generación usa crédito de IA con tope mensual.</p>
-          <button type="submit" disabled={!puede(rol, 'editar_contenido')}>Generar plan (1 pieza de prueba)</button>
+          <label className="campo"><span>Cuántas piezas <Ayuda que="Cuántas publicaciones propone el plan para el mes." origen="Lo eliges tú." afecta="Más piezas = más gasto de IA al generarlas una por una." ejemplo="4 = una por semana" /></span>
+            <select name="cantidad" defaultValue="4"><option value="1">1 (prueba)</option><option value="4">4</option><option value="8">8</option><option value="12">12</option></select></label>
+          <button type="submit" disabled={!puede(rol, 'editar_contenido')}>Generar plan</button>
         </form>
       ) : plan.estado === 'generando' ? (
         <p className="tarjeta">Generando el plan… recarga en unos segundos.</p>

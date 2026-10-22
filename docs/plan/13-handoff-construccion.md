@@ -149,10 +149,16 @@ REGLAS DURAS
 | Prueba ácida (`14`) | ✅ 14 hallazgos corregidos o con compuerta |
 | **Visto bueno final de Byron** | ⏳ |
 
-## 13. Estado de la construcción (2026-10-22, sesión de construcción 1)
-**Hecho y probado en local (sin Supabase ni proveedores reales):** CI (`.github/workflows/ci.yml`); suite SQL de seguridad por fila con ataques entre organizaciones (`npm run test:sql`, verificada rompiéndola a propósito); RBAC en servidor; tokens de diseño en 3 capas y registro de temas (`base`); `<Lecturas>` y `<FuenteDato>`; router de IA (cadena, circuito, ledger, validadores, tope) con 13 pruebas simuladas incluida la caída de Anthropic y OpenAI → Gemini; publicador idempotente con pruebas de caída a mitad (5); rebanada vertical en `/app/negocio/[id]/plan`.
-**Escrito pero NO probado contra servicios reales:** adaptadores de Anthropic/OpenAI/Gemini (faltan claves en este entorno), Supabase real, Storage, Instagram (falta `INSTAGRAM_APP_ID/SECRET`), cron.
-**Migraciones pendientes de pegar (Byron):** `sql/002_ia_y_planes.sql`, `sql/003_storage_y_publicador.sql`.
-**Pendiente de E0:** etiqueta `diseno-base-v0` creada en local sobre `c6c8e7c` pero el servidor Git de la sesión no deja subir etiquetas (subirla desde otro equipo); Sentry; invitaciones de miembros; i18n; capturas Refero.
-**Falta de la Fase A:** evaluación ≥30 casos; carrusel/reel/story; Facebook; ≥80 % de ficha con rastreo; regalo «Semana 1»; panel de costo por pieza; plan de más de 1 pieza; programación por fecha; `pg_cron` + `pg_net` (SQL del cron).
-**Verificaciones técnicas pendientes (§8):** modelos y precios de OpenAI/Gemini, versión de Graph, límites de Hobby/Supabase.
+## 13. Estado de la construcción (actualizado 2026-10-22)
+**Hecho y probado en local (sin Supabase ni proveedores reales):** CI en GitHub (`.github/workflows/ci.yml`: tipos, pruebas, suite SQL de seguridad por fila, build); RBAC en servidor; tokens de diseño en 3 capas y tema `base`; `<Lecturas>` y `<FuenteDato>`; router de IA (cadena, circuito, ledger, validadores, tope) con pruebas simuladas incluida la caída de Anthropic y OpenAI → Gemini; publicador idempotente con pruebas de caída a mitad; rebanada vertical en `/app/negocio/[id]/plan` (plan de 1/4/8/12 piezas, solo tipo post); panel `/app/costos`.
+**Escrito pero NO probado contra servicios reales:** adaptadores de Anthropic/OpenAI/Gemini, Supabase real, Storage, Instagram, cron, `evals/correr.ts` (30 casos; necesita claves).
+**Migraciones pendientes de pegar (Byron), en orden:** `sql/002_ia_y_planes.sql`, `sql/003_storage_y_publicador.sql`, `sql/004_cron_publicador.sql` (plantilla con dos textos por reemplazar en el editor de Supabase).
+**Pendientes (con motivo):**
+- Etiqueta `diseno-base-v0` (local, sobre `c6c8e7c`): el Git de la sesión no sube etiquetas.
+- Carrusel/reel/story y video: no construidos (el plan hoy solo pide posts). Investigar video (Veo) pendiente.
+- Facebook (directo), TikTok/YouTube asistido: no construidos.
+- Rastreo de ficha ≥80 %, diagnóstico, regalo «Tu Semana 1 lista» (E17): no construidos.
+- Programar publicación por fecha/hora: hoy se publica «ahora».
+- Sentry, invitaciones de miembros, i18n, capturas Refero: no hechos.
+- Verificar modelos/precios de OpenAI y Gemini, versión de Graph, límites de Hobby/Supabase (§8).
+- Rama sobrante en GitHub `claude/gracious-goldberg-8pmaln` (no es de esta sesión): borrar desde GitHub → Branches.

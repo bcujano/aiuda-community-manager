@@ -10,6 +10,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <div className="marca">AiUDA</div>
         <nav>
           <Link href="/app">Inicio</Link>
+          <Link href="/app/costos">Costo de IA</Link>
           {PRONTO.map((n) => <span key={n} className="pronto">{n}<small>pronto</small></span>)}
         </nav>
         <form action={salir}><button className="secundario">Salir</button></form>

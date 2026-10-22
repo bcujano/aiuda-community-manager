@@ -28,6 +28,7 @@ export async function generarPlan(fd: FormData) {
   const marcaId = String(fd.get('marca') ?? '')
   const m = await marcaConFicha(marcaId)
   try { await exigir(m.org_id, 'editar_contenido') } catch (e) { if (e instanceof SinPermiso) ir(marcaId, 'error', e.message); throw e }
+  const n = [1, 4, 8, 12].includes(Number(fd.get('cantidad'))) ? Number(fd.get('cantidad')) : 1
   const sb = await supabaseServidor()
   const mes = new Date(); const mesIso = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth(), 1)).toISOString().slice(0, 10)
   const { data: plan, error } = await sb.from('planes_mes').insert({ org_id: m.org_id, marca_id: m.id, mes: mesIso }).select('id').single()
@@ -36,8 +37,8 @@ export async function generarPlan(fd: FormData) {
   const ficha = fichaComoTexto(m.nombre, m.perfil as Perfil)
   const r = await ia.ejecutar<Plan>({
     tarea: 'plan_mes', org_id: m.org_id, marca_id: m.id, esquema: EsquemaPlan, sistema: sistemaPlan,
-    usuario: `<ficha>\n${ficha}\n</ficha>\n\nPrimera entrega de prueba: propón un plan con EXACTAMENTE 1 pieza (tipo "post") para este mes.`,
-    fuente: ficha, frasesProhibidas: frasesDeFicha(m.perfil as Perfil), maxTokens: 1500,
+    usuario: `<ficha>\n${ficha}\n</ficha>\n\nPropón un plan para este mes con EXACTAMENTE ${n} pieza(s). Varía los temas. Todas deben ser de tipo "post" (por ahora solo se publican imágenes).`,
+    fuente: ficha, frasesProhibidas: frasesDeFicha(m.perfil as Perfil), maxTokens: 800 + n * 250,
   })
   if (!r.ok) {
     await sb.from('planes_mes').update({ estado: 'error', error: r.detalle }).eq('id', plan.id)
