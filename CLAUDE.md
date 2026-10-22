@@ -11,6 +11,7 @@ Dueño: Byron. Objetivo: producto ganador y dossier para startup visa (EE. UU., 
 1. `docs/PLAN-MAESTRO.md` — producto, negocio, fases, decisiones.
 2. `docs/knowledge/README.md` — índice del conocimiento acumulado (APIs, seguridad, repos, ads, contenido, UI/UX, visas, playbooks SYK).
 3. `docs/MARCA.md` — nombres y reglas de marca.
+4. `docs/plan/README.md` — **paquete de planificación** (inventario de reuso, competencia, motor de IA, diseño, backlog por épicas, decisiones y riesgos). Es lo que manda para construir.
 
 ## Reglas duras
 1. **Repos ajenos son solo lectura.** `bcujano/crm-321` y `bcujano/postpro-321` se leen y se copian a este repo adaptados; **nunca** se edita, mueve ni borra nada allá.
@@ -53,5 +54,11 @@ Next.js (App Router) + React + TypeScript + Tailwind + shadcn/ui · Supabase (Po
 ## Git
 Una sola rama: **`main`**. Byron no quiere ramas ni PRs: se trabaja y se sube directo a `main`.
 
+## Motor de IA
+Anthropic principal → OpenAI respaldo → Gemini garantía, siempre a través del router (`docs/plan/03-motor-ia.md`). Ninguna parte del sistema llama a un proveedor directo.
+
+## Reutilización
+No se repite lo que ya existe en crm-321/postpro-321: se porta, se parametriza por cliente y se corrigen sus defectos (`docs/plan/01-inventario-reuso.md`).
+
 ## Estado
-Fase: **planificación terminada, ejecución por iniciar** (Fase 0). Ver plan §7.
+Fase: **planificación en curso** (paquete en `docs/plan/`). La construcción la hace otra sesión cuando la planificación esté completa. Falta `docs/design.md` (lo entrega Byron).

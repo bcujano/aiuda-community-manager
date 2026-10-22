@@ -150,3 +150,11 @@ Entregables para la solicitud (los preparamos en Fase 4): plan de negocio, model
 - **AiUDA Inbox sobre Chatwoot:** Chatwoot aporta bandeja, canales (IG, FB, WhatsApp, web), asignación humana y etiquetas; AiUDA aporta el agente IA con reglas, base de conocimiento y escalamiento. A validar: límites de RAM de Railway y que el canal de Instagram de Chatwoot use la misma app de Meta (una sola App Review).
 - **Riesgo de recursos:** Railway + n8n + Chatwoot (Rails + Redis + Postgres) pesan; empezar con Chatwoot en la nube de Chatwoot o diferirlo a Fase 2 para no gastar créditos antes de tener clientes.
 - **Hecho:** sitio base en Next.js con `/privacidad`, `/terminos`, `/eliminacion-de-datos` y `/api/salud` (compila). Falta desplegar en Vercel con el dominio.
+
+## 13. Decisiones del 2026-10-22
+- Motor de IA: Anthropic → OpenAI → Gemini (`plan/03-motor-ia.md`).
+- Reutilizar crm-321/postpro-321 (`plan/01-inventario-reuso.md`); no rehacer lo que ya existe.
+- Competencia: SaleADS.ai y la referencia JARVIS (`plan/02-competencia-saleads.md`).
+- Diseño: `docs/design.md` (pendiente de Byron) como tema y landing; la funcionalidad manda (`plan/04-diseno.md`).
+- Backlog y fases A–D (`plan/05-backlog-construccion.md`); decisiones y riesgos (`plan/06-decisiones-y-riesgos.md`).
+- Aviso: Vercel Hobby es no comercial y Supabase gratuito no es apto para clientes reales; ambos se pagan antes del primer cobro.
