@@ -22,7 +22,7 @@ export default async function Ficha({ params, searchParams }: { params: Promise<
       <h1>{marca.nombre}</h1>
       <p className="suave">Cuanto más completa esté esta ficha, mejores serán tus publicaciones, anuncios y respuestas. Lo que no sepas, déjalo en blanco: nunca se inventa.</p>
       <div className="barra" aria-label={`Avance ${av.porcentaje}%`}><i style={{ width: `${av.porcentaje}%` }} /></div>
-      <p className="suave">{av.hechos} de {av.total} datos completos ({av.porcentaje} %)</p>
+      <p className="suave">{av.hechos} de {av.total} datos completos ({av.porcentaje} %) · <Link href={`/app/negocio/${marca.id}/plan`}>Plan del mes</Link></p>
       {error && <p role="alert" className="alerta-error">{error}</p>}
       {ok && <p role="status" className="alerta-ok">{ok}</p>}
 
