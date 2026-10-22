@@ -1,8 +1,8 @@
 # 04 · Diseño: cómo entra `design.md`
 
-**Pedido de Byron:** entregará el código de diseño; se guarda en `docs/design.md` y se usa **como tema y como página de inicio**. Es **netamente estético**: la funcionalidad total manda, el diseño no puede limitar la utilidad.
+**Decisión de Byron (2026-10-22):** se usa la **receta Refero** (§5) como tema y página de inicio, **pero tiene que ser fácil volver atrás si no le gusta** (§6). Si entrega su propio código de diseño, entra como **tercer tema** y puede ganar. Es **netamente estético**: la funcionalidad total manda, el diseño no puede limitar la utilidad.
 
-## 1. Qué falta recibir (checklist)
+## 1. Qué falta recibir (checklist) — ahora **opcional** si se usa la receta Refero
 | # | Qué | Para qué |
 |---|---|---|
 | 1 | **El código** (HTML/CSS/JS, Tailwind, React o lo que sea) de la landing y, si existe, de pantallas de ejemplo | Fuente de verdad visual → `docs/design.md` (se guarda tal cual) |
@@ -71,3 +71,16 @@ Colores de marca: salen de **tu código de diseño**; si no lo entregas, se prop
 - Son estilos **derivados de marcas reales**: se toma la **estructura** (jerarquía, radios, espaciado, uso del color), **no** la identidad (logos, tipografías propietarias como Saans, Lausanne o NotionInter; usar Inter u otra con licencia).
 - **Ninguno define** tablas densas, calendario, gráficos, estados de formulario ni modo oscuro completo (salvo Raycast). Esas piezas las definimos nosotros en `design.md`, con las reglas de la §2.
 - Si entregas tu **código de diseño**, **ese manda**; Refero sirve para complementar lo que falte (p. ej. el modo oscuro) o como plantilla de formato del `DESIGN.md`.
+
+## 6. Reversibilidad: volver atrás debe costar una línea
+1. **Punto de retorno:** antes de aplicar nada se etiqueta el estado actual (`diseno-base-v0`) en `main`.
+2. **Tokens en tres capas:** primitivos (colores, tamaños) → **semánticos** (`--fondo`, `--superficie`, `--borde`, `--texto`, `--texto-suave`, `--accion`, `--peligro`, `--exito`, `--radio-*`, `--fuente-*`) → componentes. **Los componentes solo usan tokens semánticos, nunca colores directos.**
+3. **Registro de temas:** `data-tema="base" | "refero" | "propio"` en `<html>`; los temas viven en archivos CSS separados (`tema-base.css`, `tema-refero.css`, `tema-propio.css`). El tema activo sale de **una variable** (`NEXT_PUBLIC_TEMA`) o, más adelante, de un ajuste por organización. **Volver atrás = cambiar esa variable y redesplegar** (o `git revert` de un solo commit).
+4. **Solo piel:** la estructura de pantallas y componentes es **la misma** en todos los temas (sin bifurcar componentes), de modo que cambiar de tema nunca rompe funciones.
+5. **Tipografías** por variable (`--fuente-titulo`, `--fuente-cuerpo`, `--fuente-mono`) con alternativas con licencia (Inter y similares).
+6. **Compuerta de aprobación:** antes de dejar Refero como tema por defecto, Byron revisa capturas de **6 pantallas clave** (inicio, ficha, calendario, bandeja, anuncios, landing) en claro/oscuro y móvil/escritorio, con **ambos temas lado a lado**. Si no le gusta, el tema por defecto sigue siendo `base`.
+7. **Pruebas:** capturas de regresión visual en CI para cada tema; prueba de que cambiar `NEXT_PUBLIC_TEMA` deja todas las pantallas operativas.
+8. **Etiqueta de entrega:** `diseno-refero-v1` al terminar, para poder volver a ella o a `diseno-base-v0`.
+
+## 7. `docs/design.md` (formato)
+Se escribe con el formato de `DESIGN.md` que usa Refero (paleta, tipografía, espaciado, radios, componentes, principios, **excepciones** y **correcciones de accesibilidad**), con una sección por tema. La receta combina: Notion (app), Ramp (pantallas de dinero), Intercom (landing e Inbox) y Raycast (modo oscuro y Asistente). ⚠️ Verificar en la construcción si los `DESIGN.md` de esos cuatro estilos se pueden descargar sin cuenta.

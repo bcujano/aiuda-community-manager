@@ -36,7 +36,7 @@
 1. **Onboarding en 10 minutos:** conectar Meta/TikTok (OAuth), pegar web → la IA extrae Brand Kit (tono, colores, logo, productos, público) y propone el primer mes. *Momento "wow" antes de pagar.*
 2. **Community management real:** bandeja unificada de comentarios y DMs; la IA responde con la base de conocimiento de la marca, escala lo sensible, captura leads (aquí reusamos el agente de WhatsApp del CRM).
 3. **Bucle de aprendizaje:** cada semana compara rendimiento por formato/hook/hora y ajusta el plan (bandit simple). Ningún número inventado (regla C).
-4. **TikTok + LinkedIn + Google Business Profile** además de IG/FB.
+4. **TikTok y YouTube** además de IG/FB (decisión 2026-10-22: no LinkedIn ni otras redes).
 5. **Modo agencia (white-label):** una agencia gestiona 20 marcas → canal de distribución.
 6. **Facturación (Stripe), límites por plan, medición de créditos de IA por cliente** (margen controlado).
 
@@ -82,7 +82,7 @@ Entregables para la solicitud (los preparamos en Fase 4): plan de negocio, model
 - **DB:** Supabase plan Pro, RLS por organización (el plan gratis ya se cayó por Disk IO).
 - **Motor:** el FastAPI de postpro-321, limpio de legacy, con cola real (tabla + `SELECT … FOR UPDATE SKIP LOCKED` o Inngest/Trigger.dev) en vez de n8n cada 2 min.
 - **IA:** Claude para estrategia/redacción/respuestas; generadores de imagen/video intercambiables detrás de una interfaz (`proveedor_imagen`, `proveedor_video`) con contador de costo.
-- **Integraciones:** Meta Graph (IG/FB), TikTok Content Posting API, LinkedIn, Google Business, WhatsApp Cloud API, Stripe.
+- **Integraciones:** Meta Graph (IG/FB), TikTok (Content Posting + Marketing API), YouTube Data API y Google Ads API, WhatsApp Cloud API (asistente), Stripe.
 - **Observabilidad:** Sentry, logs estructurados, alertas por pieza fallida.
 
 ## 7. Fases (planificar → ejecutar → lanzar → optimizar → relanzar)
@@ -158,3 +158,8 @@ Entregables para la solicitud (los preparamos en Fase 4): plan de negocio, model
 - Diseño: `docs/design.md` (pendiente de Byron) como tema y landing; la funcionalidad manda (`plan/04-diseno.md`).
 - Backlog y fases A–D (`plan/05-backlog-construccion.md`); decisiones y riesgos (`plan/06-decisiones-y-riesgos.md`).
 - Aviso: Vercel Hobby es no comercial y Supabase gratuito no es apto para clientes reales; ambos se pagan antes del primer cobro.
+
+## 14. Decisiones del 2026-10-22 (segunda ronda)
+- Redes: **solo Instagram, Facebook, TikTok y YouTube**, con sus anuncios (Meta Ads, TikTok Ads, Google Ads/YouTube).
+- Diseño: **receta Refero con vuelta atrás fácil** (`plan/04-diseno.md` §6).
+- Tope de IA: **US$50/mes**. **Nada de planes de pago hasta generar dinero** (riesgo de Vercel Hobby asumido; `plan/09`).

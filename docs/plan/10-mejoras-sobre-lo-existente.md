@@ -35,7 +35,7 @@ nivel_modelo: redaccion
 ---
 (cuerpo de la skill en Markdown)
 ```
-- **Categorías y metas:** ganchos 15, guiones 12, carruseles 10, historias 8, captions 8, adaptación por red 11 (una por red), anuncios (ángulos, copy, segmentación, pruebas, diagnóstico) 20, respuestas (comentarios, mensajes, objeciones, escalamiento) 12, análisis (métricas, competencia, Ad Library) 10, estrategia (plan, calendario, lanzamiento, evento) 8, SEO local 4. Total ≈ 118.
+- **Categorías y metas:** ganchos 15, guiones 12, carruseles 10, historias 8, captions 8, adaptación por red 4 (Instagram, Facebook, TikTok, YouTube), anuncios 24 (Meta 12, TikTok 6, Google/YouTube 6: ángulos, copy, segmentación, pruebas, diagnóstico), respuestas (comentarios, mensajes, objeciones, escalamiento) 12, análisis (métricas, competencia, Ad Library) 10, estrategia (plan, calendario, lanzamiento, evento) 8, SEO local 4. Total ≈ 115.
 - **Fuentes:** las skills propias de postpro-321; paquetes **MIT** ya evaluados (coreyhaines31/marketingskills, Jakeschincariol/instagram-agent-skill, sergebulaev/instagram-skills, social-media-skills/skills) **con atribución y reescritas**; el conocimiento vertical de 321. **No** se incluye literal el material de pago de SYK.
 - **Combinación con el sistema:** una skill no escribe «desde cero»: recibe la **ficha**, la **memoria** de la marca, los **patrones de la competencia**, los **resultados propios** y las **reglas** (frases prohibidas, diseño, políticas de anuncios).
 - **Por organización:** cada cliente puede **editar o desactivar** skills (con versión y vuelta atrás); hay un conjunto base global.

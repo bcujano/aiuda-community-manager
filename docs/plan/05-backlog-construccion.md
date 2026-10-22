@@ -15,10 +15,10 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 ## Fases
 | Fase | Épicas | Resultado |
 |---|---|---|
-| **A · «321 lo usa»** | E0, E1, E2 (básico), E3, E4 (básico), E5 (IG/FB + Discord/Telegram + modo asistido en el resto) | Plan del mes → piezas → aprobación → publicación en Instagram/Facebook de 321 |
+| **A · «321 lo usa»** | E0, E1, E2 (básico), E3, E4 (básico), E5 (IG/FB directo; TikTok privado y YouTube asistido) | Plan del mes → piezas → aprobación → publicación en Instagram/Facebook de 321 |
 | **B · Beta** | E6, E7 (Meta), E8, E9, E10 | Bandeja, anuncios con topes, métricas, asistente por chat/WhatsApp, cobro |
-| **C · Lanzamiento** | E11, E13, E14, **E12 (revisiones de Meta/TikTok/Google/LinkedIn/YouTube/Pinterest cuando el sistema esté sólido)**, TikTok (E5/E7) | Agencias, revisión de Meta aprobada, landing con diseño, operación estable |
-| **D · Ampliación** | Google Ads, LinkedIn, YouTube Shorts, E15 | Más redes y extras |
+| **C · Lanzamiento** | E11, E13, E14, **E12 (revisiones de Meta/TikTok/Google/YouTube cuando el sistema esté sólido)**, TikTok (E5/E7) | Agencias, revisión de Meta aprobada, landing con diseño, operación estable |
+| **D · Ampliación** | Google Ads (YouTube), YouTube directo tras auditoría, E15 | Anuncios de YouTube y extras |
 
 ---
 ## E0 · Fundación y calidad (S–M)
@@ -50,7 +50,7 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 
 ## E5 · Publicación (M–L)
 - **Reescribir** el publicador (no portar tal cual): `publicaciones` con una fila por plataforma, `tomar_publicaciones()` (SKIP LOCKED + lease), contenedor→`FINISHED`→`media_publish`, reanudar con `creation_id`, token con aviso de vencimiento, secreto en header, error visible con reintento manual. Referencia: `api/post-pro/publish|schedule`, `n8n/321-post-pro-publicar-programadas`.
-- **Redes (todas, Byron 2026-10-22):** Instagram, Facebook, Threads, TikTok, YouTube Shorts, LinkedIn, Pinterest, X, Reddit, Discord, Telegram, cada una en modo **directo** o **asistido** según acceso (`08`). Orden de directo: Instagram/Facebook → Discord/Telegram (sin revisión) → Threads → TikTok → X (pago por uso) → resto al aprobarse. «Crea una vez, publica en todas»: una idea madre → pieza nativa por red (`08` §7).
+- **Redes (Byron 2026-10-22): solo Instagram, Facebook, TikTok y YouTube** (`08`), cada una en modo **directo** o **asistido** según acceso: Instagram/Facebook directo; TikTok directo en desarrollo (privado) y asistido para público; YouTube asistido hasta auditar. «Una idea, cuatro formatos» (`08` §6).
 - **Programador:** `pg_cron` + `pg_net` de Supabase (gratis) llamando a un endpoint con `CRON_SECRET` en header (`09`); sin Railway en esta etapa.
 - **Aceptación:** simulando fallo a mitad de camino, **ninguna publicación duplicada**; pieza colgada se recupera sola; publicar en IG y FB falla en una y se reintenta solo esa.
 
@@ -99,7 +99,7 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 
 ---
 ## Orden y dependencias
-E0 → E1 → (E2 ∥ E3) → E4 → E5 → [Fase A terminada] → E6 → E7 → E8 → E9 → E10 → [Fase B] → E11 ∥ E12 ∥ E13 ∥ E14 → [Fase C] → TikTok/Google/LinkedIn/E15.
+E0 → E1 → (E2 ∥ E3) → E4 → E5 → [Fase A terminada] → E6 → E7 → E8 → E9 → E10 → [Fase B] → E11 ∥ E12 ∥ E13 ∥ E14 → [Fase C] → TikTok Ads / Google Ads (YouTube) / E15.
 
 ## E16 · Promesas y calidad de producto (S, transversal)
 Panel de operación con las 10 promesas de `07` §3 medidas (borrador de campaña < 60 s, alta < 10 min, primera respuesta < 15 min, etc.); revisión mensual; biblioteca de estrategias ≥50 (`07` §5).

@@ -1,7 +1,7 @@
-# 09 · Plan «todo gratis hasta lanzar y tener ≥5 clientes»
+# 09 · Plan «nada de pago hasta generar dinero»
 
-**Decisión (Byron, 2026-10-22):** infraestructura gratuita hasta el lanzamiento y los primeros 5 clientes.
-**Dos matices honestos:** (1) la **IA no es gratis** (se paga por uso); (2) **Vercel Hobby no permite uso comercial**, así que con clientes que pagan hay que subir de plan. Abajo se resuelve con costos mínimos y gatillos claros.
+**Decisión (Byron, 2026-10-22):** **ningún plan de pago hasta generar dinero.** Tope de IA: **US$50/mes**.
+**Dos matices honestos:** (1) la **IA no es gratis** (se paga por uso; tope US$50/mes); (2) **Vercel Hobby no permite uso comercial** según su documentación: Byron **asume ese riesgo** (R-3) y se mitiga con portabilidad, copias y un plan B de alojamiento. El gatillo para pagar es el **primer ingreso recibido**.
 
 ## 1. Qué es gratis y qué no
 | Pieza | Gratis | Límite / condición (⚠️ verificar en la fuente oficial) | Gatillo para pagar |
@@ -21,7 +21,7 @@
 | **IA — Gemini** | **Parcial** | Nivel gratuito para modelos de texto «flash»; **imagen y video sin nivel gratuito**; los límites cambian y las fuentes **discrepan** (p. ej. 5–15 solicitudes/min) | Cuando se superen los límites |
 
 ## 2. Presupuesto de IA mínimo (lo único que no es gratis)
-- Fijar un **tope mensual de IA en el motor** (p. ej. US$20–50 mientras se construye; el valor lo decide Byron).
+- **Tope mensual de IA en el motor: US$50** (decidido por Byron). Reparto sugerido: 60 % planes/redacción (Anthropic), 25 % respaldo/pruebas (OpenAI/Gemini de pago), 15 % reserva; alerta al 80 % y corte de tareas no esenciales al 100 %.
 - **«Modo ahorro» del router** (`03` §12): tareas simples a Gemini flash (gratis) o Haiku; solo planes y diagnóstico usan el modelo grande; **caché del prefijo de skills**; límites de reintentos; sin regenerar sin pedir.
 - Pruebas con **cuentas propias de 321** y anuncios solo con topes de **US$1–5/día**.
 - El **ledger** (`ia_llamadas`) mide el costo real por pieza desde la primera semana: es el dato que fija precios.
@@ -32,7 +32,7 @@ Next.js en Vercel (UI + API) ↔ Supabase (datos, auth, Storage, `pg_cron`, `pg_
 ## 4. Riesgos de esta etapa y mitigación
 | Riesgo | Mitigación |
 |---|---|
-| Hobby y uso comercial | Solo desarrollo/pruebas en Hobby; **Pro desde el primer cobro** (US$20 vs ≥ US$49 por cliente) |
+| Hobby y uso comercial | **Riesgo asumido.** Mantener el despliegue **portable** (sin KV/Edge Config/otras funciones exclusivas de Vercel); documentar el plan B (Cloudflare Pages/Workers o Netlify, ⚠️ verificar sus términos comerciales); si Vercel avisa, migrar sin perder datos (están en Supabase). **Pro al primer ingreso** |
 | Supabase se pausa | Latido (`pg_cron` o GitHub Action cada día); alerta si no responde |
 | Sin copias de seguridad | **Exportación semanal** a un repositorio privado/Storage (solo datos esenciales) |
 | Base llena (500 MB) | Retención de `ia_llamadas` (90 días), limpieza de medios, sin binarios en tablas |
@@ -40,11 +40,12 @@ Next.js en Vercel (UI + API) ↔ Supabase (datos, auth, Storage, `pg_cron`, `pg_
 | IA cara | Tope mensual, modo ahorro, ledger |
 
 ## 5. Gatillos de pasar a pago
-1. **Primer cliente que paga** → Vercel Pro.
-2. **Primer cliente real** o base > ~350 MB → Supabase Pro (⚠️ US$25/mes según fuentes).
+1. **Primer ingreso recibido** → Vercel Pro.
+2. Base > ~350 MB o primer cliente con datos reales críticos → Supabase Pro (⚠️ US$25/mes según fuentes), pagado **con ese ingreso**.
 3. Revisión de Meta → dominio propio + correo operativo.
 4. Volumen de mensajes/imágenes → plan de correo, R2, etc.
-Los costos fijos al llegar a 5 clientes (~US$45–50/mes de infraestructura, ⚠️ a confirmar) quedan **cubiertos por un solo cliente del plan medio**.
+Los costos fijos de infraestructura (~US$45–50/mes, ⚠️ a confirmar) quedan **cubiertos por un solo cliente del plan medio**.
 
 ## 6. Qué cambia en el backlog (`05`)
+Nada Pro implica: sin Railway, sin n8n, sin Chatwoot, sin Sentry de pago, sin dominio de pago hasta el primer ingreso (la revisión de Meta ya está pospuesta).
 E5 (programador) usa `pg_cron`; E4 (video) con trabajos asíncronos; E6 sin n8n ni Chatwoot; E14 con latido y exportación semanal; **la revisión de Meta (E12) se mueve a después de que el sistema funcione bien**.

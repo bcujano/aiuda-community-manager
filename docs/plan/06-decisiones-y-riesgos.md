@@ -13,9 +13,11 @@
 | C-8 | Repos ajenos solo lectura | 2026-10-21 |
 | C-9 | El diseño (`design.md`) es estético; la funcionalidad manda | 2026-10-22 |
 | C-10 | La construcción se hace en otra sesión, cuando la planificación esté completa | 2026-10-22 |
-| C-11 | **Todas las redes del carrusel** (11), directo o asistido; **Ad Library** incluido | 2026-10-22 |
+| C-11 | **Solo Instagram, Facebook, TikTok y YouTube con sus anuncios** (Meta Ads, TikTok Ads, Google Ads/YouTube); **Ad Library** incluido. Descartadas: Threads, LinkedIn, Pinterest, X, Reddit, Discord, Telegram | 2026-10-22 |
 | C-12 | La revisión de Meta **no es inmediata**: primero el sistema funcionando bien | 2026-10-22 |
-| C-13 | **Infraestructura gratuita hasta lanzar y llegar a ≥5 clientes** (con los matices de `09`) | 2026-10-22 |
+| C-13 | **Ningún plan de pago (Vercel Pro, Supabase Pro u otro) hasta generar dinero** (primer ingreso recibido). Infraestructura gratuita hasta entonces | 2026-10-22 |
+| C-15 | **Tope de IA: US$50 al mes** mientras se construye y valida | 2026-10-22 |
+| C-16 | **Diseño: receta Refero** (Notion + Ramp + Intercom + Raycast), **con vuelta atrás fácil** (`04` §6) | 2026-10-22 |
 | C-14 | Skills ≥100 combinadas con el conocimiento del sistema (`10`) | 2026-10-22 |
 
 ## B. Decisiones abiertas (con recomendación)
@@ -24,7 +26,7 @@
 | D-1 | Dominio propio y **correo de contacto operativo** (hoy `contacto@emprendimientum.com` no recibe: hosting suspendido) | Antes de enviar a revisión de Meta: correo que reciba (reactivar hosting, o mover DNS y reenviar) y dominio verificable | **Sí, para App Review** (no para Fase A) |
 | D-2 | Proveedor de imagen/video **por cliente** (R-1) | Gemini (imagen) → OpenAI (imagen); video con Veo; Higgsfield solo para la cuenta de 321 | Sí, para E4 video |
 | D-3 | Avatar/UGC por marca | Solo con consentimiento escrito del titular de la imagen; fase B; el avatar de Byron solo para 321 | No |
-| D-4 | Planes de pago de infraestructura | **Gratis hasta el lanzamiento.** Vercel Pro (US$20/mes) **desde el primer cobro o uso comercial real**; Supabase Pro desde el primer cliente real (`09` §5) | Sí, para cobrar |
+| D-4 | Planes de pago de infraestructura | **Decidido por Byron: nada Pro hasta generar dinero.** Riesgo asumido: Vercel Hobby es no comercial; se mitiga con portabilidad y copias (`09` §4). Al **primer ingreso** se paga Vercel Pro y, con datos reales de clientes, Supabase Pro | No |
 | D-5 | Precios 49/149/399 + Ads | Validar con costo real por pieza (E1/E4) y con SaleADS ($69/$129 y 1/3 negocios); decidir tras la Fase A | No |
 | D-6 | Composición de piezas: Pillow (Python) vs vectorial TS | **Vectorial TS como estándar** (SVG editable, reglas de diseño, 10 estilos); Pillow solo mientras 321 migra | No |
 | D-7 | Inbox: n8n vs código propio; Chatwoot | **Núcleo propio** (webhook→clasificar→responder→escalar, con pruebas); n8n para alertas y seguimientos; **Chatwoot diferido** a Fase B/C | No |
@@ -33,16 +35,16 @@
 | D-10 | Idiomas | Español primero; inglés/portugués en lanzamiento | No |
 | D-11 | Segmentos | Inmobiliario primero; plantillas para restaurantes/clínicas/retail; **edición creadores** (marca personal) después | No |
 | D-12 | Claves propias del cliente (BYO) | Solo agencias, fase C | No |
-| D-13 | Redes y orden | **Todas** (`08`): directo en Instagram/Facebook/Discord/Telegram; el resto asistido hasta aprobarse; anuncios Meta → TikTok → Google | No |
+| D-13 | Redes y orden | **Cuatro** (`08`): Instagram/Facebook directo; TikTok privado en desarrollo y asistido para público; YouTube asistido hasta auditar; anuncios Meta → TikTok → Google (YouTube) | No |
 | D-14 | Ad Library de competidores | Validar con una consulta de solo lectura qué devuelve para Ecuador/LATAM antes de prometerla (`08` §5) | No |
-| D-15 | Diseño | Tu código de diseño manda; opciones de Refero en `04` §5 (receta: Notion + Ramp + Intercom + Raycast) | **Sí** (para E13) |
+| D-15 | Diseño | **Decidido:** receta Refero con vuelta atrás (`04` §6). Si Byron entrega su propio código, entra como tercer tema (`propio`) y puede ganar | No |
 
 ## C. Riesgos
 | # | Riesgo | Impacto | Mitigación |
 |---|---|---|---|
 | R-1 | **Higgsfield con créditos del plan personal de Byron no es un proveedor multicliente** y puede violar términos si se revende | Alto | Proveedores por API (Gemini/OpenAI/Veo); Higgsfield solo cuenta de 321; revisar términos |
 | R-2 | **Revisión de Meta** (App Review + Business Verification): semanas; `*.vercel.app` **no se puede verificar como dominio propio**; el correo de contacto no funciona | Alto | Dominio propio, correo operativo, demo grabado (E12); empezar el trámite al terminar Fase A |
-| R-3 | **Vercel Hobby es para uso no comercial** (oficial); funciones de 10–60 s | Alto | Pro desde el primer cobro; programador con `pg_cron`+`pg_net` (gratis); trabajos asíncronos |
+| R-3 | **Vercel Hobby es para uso no comercial** (oficial); funciones de 10–60 s. **Riesgo asumido por Byron** (sin Pro hasta generar dinero): posible suspensión si se usa comercialmente | Alto | Hobby solo para construir/probar; **portabilidad** (sin funciones exclusivas de Vercel) y plan B de alojamiento; copias semanales; Pro al primer ingreso; `pg_cron`+`pg_net` y trabajos asíncronos |
 | R-4 | **Supabase gratuito:** se pausa por inactividad, sin copias de seguridad, ~500 MB, Disk IO limitado (crm-321 ya se cayó el 27-sep) | Alto | Plan Pro antes de clientes reales; lotes con pausa; retención de `ia_llamadas`; Storage con límites |
 | R-5 | Caída de un proveedor de IA | Medio | Cadena de tres + circuito + sondas + cola |
 | R-6 | **Políticas de anuncios**: categoría especial de **vivienda** (segmentación restringida), claims de resultados | Alto (inmobiliario) | Validador de políticas, `segmentacion-meta` ajustada, nunca prometer resultados (a diferencia de la competencia) |
@@ -57,8 +59,8 @@
 | R-15 | Competidores (SaleADS) y creadores que se arman su propio sistema | Medio | Diferenciar por completitud, control, seguridad y simplicidad (`02`) |
 
 ## D. Qué debe quedar resuelto antes de empezar a construir
-1. `design.md` recibido (Byron).
+1. `design.md` generado con la receta Refero (o el de Byron si lo entrega).
 2. D-2 (imagen/video) con una prueba corta de proveedores — o aceptar que la Fase A usa solo piezas vectoriales y fotos reales.
-3. D-4 aceptada: se pagará Vercel Pro y Supabase Pro antes del primer cobro.
+3. ~~D-4~~ **Resuelta:** nada Pro hasta generar dinero (riesgo R-3 asumido).
 4. Confirmar que Fase A = «321 lo usa» como criterio de salida (`05`).
 5. Cuenta de Meta para desarrollo creada (app en modo desarrollo, solo cuentas propias).
