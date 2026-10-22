@@ -22,7 +22,7 @@ Dueño: Byron. Objetivo: producto ganador y dossier para startup visa (EE. UU., 
 6. **Multi-tenant desde la primera tabla:** toda tabla lleva `org_id` y RLS. Sin excepciones.
 7. Secretos y tokens: solo en variables de entorno o cifrados en base. Nunca en el repo, logs ni URLs.
 8. Migraciones SQL en `sql/NNN_*.sql`; Byron las pega en Supabase. Nunca se ejecutan solas.
-9. Supabase: se usa el proyecto gratuito que ya tiene AiUDA. Escrituras en lote y con pausa; nunca fila por fila en bucle; sin archivos pesados en la base (usar Storage con límites y limpieza).
+9. Supabase: se usa el proyecto gratuito `aiuda-empresas`, **que ya contiene otra app** (esquema `public`: leads, citas, organizaciones, actividad…). **Nunca se toca `public`**: AiUDA CM vive en el esquema **`aiuda_cm`** (`sql/001_esquema_aiuda_cm.sql`). Escrituras en lote y con pausa; nunca fila por fila en bucle; sin archivos pesados en la base (usar Storage con límites y limpieza).
 10. Optimizar recursos: sin agentes ni procesos extra si el trabajo cabe en una sola pasada; caché de respuestas de IA; modelo pequeño donde baste.
 
 ## Reglas de producto (heredadas de crm-321, no se negocian)

@@ -49,6 +49,9 @@ Regla: las que empiezan por `NEXT_PUBLIC_` llegan al navegador (solo URLs y clav
 ## Operación
 `SENTRY_DSN` (errores) · `ADMIN_EMAILS` (lista separada por comas con acceso a super-administración).
 
+## Esquema de base de datos
+`NEXT_PUBLIC_DB_SCHEMA` (opcional, por defecto `aiuda_cm`): esquema de AiUDA CM dentro del proyecto de Supabase. **No cambiar** salvo que se mueva a otro proyecto.
+
 ## Reglas
 - Un secreto por variable y por entorno; rotar si alguna vez se expone.
 - Supabase gratuito: usar la clave `service_role` solo en rutas de servidor.

@@ -1,7 +1,7 @@
 # Planificación AiUDA — índice
 
 > Modo actual: **solo planificación**. La construcción la hará otra sesión que arranca cuando este paquete esté completo y exacto.
-> Lo que ya está en el repo (login, empresa, negocio, ficha, conexión de Instagram, SQL 001–002) es la base de esa construcción, no el producto.
+> Lo que ya está en el repo (login, empresa, negocio, ficha, conexión de Instagram, SQL en el esquema `aiuda_cm`) es la base de esa construcción, no el producto.
 
 | # | Documento | Contenido |
 |---|---|---|

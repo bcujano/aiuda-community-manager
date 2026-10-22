@@ -3,7 +3,7 @@
 Orden: 1 Supabase → 2 Variables → 3 Vercel → 4 Dominio → 5 Prueba. Los paneles cambian de nombre con el tiempo: si algo no está donde digo, busca el equivalente y avísame.
 
 ## 1. Supabase
-1. **SQL:** SQL Editor → New query → pega `sql/001_nucleo_multicliente.sql` → Run. Luego otra consulta con `sql/002_cola_publicaciones.sql` → Run.
+1. **SQL:** SQL Editor → New query → pega **`sql/001_esquema_aiuda_cm.sql`** → Run (un solo script; crea el esquema `aiuda_cm`). Luego: Project Settings → API (Data API) → **Exposed schemas** → agrega `aiuda_cm`. *(Los antiguos 001–003 están en `sql/_reemplazados/` y ya no se usan.)*
 2. **Claves:** Project Settings → API (o «API Keys»). Copia: **Project URL**, la clave **anon / publishable** y la **service_role / secret**. La service_role es secreta: solo va en Vercel.
 3. **Autenticación → Providers → Email:** debe estar activado (Enable Email provider).
 4. **Autenticación → URL Configuration:**

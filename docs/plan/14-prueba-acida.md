@@ -1,6 +1,8 @@
 # 14 · Prueba ácida del plan (2026-10-22)
 
-Método: leer el paquete buscando **contradicciones entre documentos, dependencias imposibles, cuentas que no cierran y supuestos sin respaldo**, y **atacar el SQL ya escrito** en un Postgres local con dos organizaciones. Resultado: **14 hallazgos**; todos corregidos o con una compuerta explícita (`13` §11).
+> **Actualización (2026-10-22, tarde):** al pegar el SQL, Byron encontró el hallazgo #15 (abajo). Los hallazgos 1–4 siguen vigentes pero ahora se corrigen en `sql/001_esquema_aiuda_cm.sql`; los antiguos `003` quedaron en `sql/_reemplazados/`.
+
+Método: leer el paquete buscando **contradicciones entre documentos, dependencias imposibles, cuentas que no cierran y supuestos sin respaldo**, y **atacar el SQL ya escrito** en un Postgres local con dos organizaciones. Resultado: **15 hallazgos**; todos corregidos o con una compuerta explícita (`13` §11).
 
 ## Hallazgos
 | # | Gravedad | Hallazgo | Evidencia | Corrección |
@@ -18,6 +20,7 @@ Método: leer el paquete buscando **contradicciones entre documentos, dependenci
 | 11 | Alta | **El video de IA puede romper el margen** y el plan Crecimiento lo prometía «incluido» | Precio por segundo sin verificar | Reels con fotos (ffmpeg) como base; clips de IA limitados y en packs; compuerta G5 (R-19) |
 | 12 | Media | **WhatsApp** (asistente del dueño) estaba en el plan sin su costo ni verificación | — | Fase B, «cuando esté disponible»; compuerta G6 (R-18) |
 | 13 | Media | **Fase A demasiado grande:** incluía TikTok directo | — | Fase A = IG/FB directo; TikTok y YouTube **asistido**; **rebanada vertical primero** (`05`) |
+| 15 | **Crítica (datos ajenos)** | **El proyecto de Supabase ya contenía otra app de Byron** (leads, citas, actividad, organizaciones…). Mis scripts usaban `create table if not exists` y se montaron sobre su tabla `organizaciones`; dos políticas mías quedaron pegadas a ella | Error `column "plan" does not exist` al pegar el 003 + diagnóstico de Byron | `sql/001_esquema_aiuda_cm.sql`: **esquema propio `aiuda_cm`**, limpieza segura de lo creado por error (solo tablas con nuestras columnas y sin filas; se detiene si hay datos). Probado simulando el estado de Byron: datos de la otra app intactos (10 leads, 134 actividad), políticas quitadas, ataques entre organizaciones bloqueados |
 | 14 | Media | **Almacenamiento:** 5 clientes llenan el gigabyte gratuito en ~7 meses sin limpieza | Cuenta de `09` | Regla de borrado a los 30 días, miniaturas, límite por cliente y alerta |
 
 ## Preguntas ácidas y su respuesta

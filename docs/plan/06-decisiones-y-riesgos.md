@@ -62,6 +62,7 @@
 | R-19 | **Costo del video de IA** puede romper el margen (⚠️ precio por segundo) | Alto | Reels con fotos (ffmpeg) como base; clips de IA limitados por plan y en packs; verificar precios antes de prometer |
 | R-20 | **Ad Library comercial** puede no estar disponible por API oficial para LATAM | Medio | Modo asistido con capturas + visión (`08` §4) |
 | R-21 | **Business Discovery** a escala: límites de llamadas compartidos con un solo token de AiUDA | Medio | Caché, cuotas por prospecto, plan B con datos pegados (`12` §3) |
+| R-22 | **Base compartida con otra app de Byron** (`aiuda-empresas`): un error de nombre puede mezclar datos | Alto | Esquema propio `aiuda_cm`; jamás tocar `public`; verificar la otra app tras cada migración; si crece, mover AiUDA a su propio proyecto (cuando haya ingresos) |
 | R-15 | Competidores (SaleADS) y creadores que se arman su propio sistema | Medio | Diferenciar por completitud, control, seguridad y simplicidad (`02`) |
 
 ## D. Qué debe quedar resuelto antes de empezar a construir

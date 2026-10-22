@@ -32,7 +32,7 @@ Son lo que más tarda y bloquea el lanzamiento. Marcas: ✅ hecho · ⏳ en curs
 
 ## 4. Otros
 - ☐ **Stripe** (cuenta de empresa) y **Resend** (correo).
-- ☐ **Supabase:** confirmar el proyecto gratuito de AiUDA y copiar URL/anon/service_role a Vercel (ver `ENV.md`). Pegar `sql/001` y `sql/002` en el SQL Editor.
+- ☐ **Supabase:** confirmar el proyecto gratuito de AiUDA y copiar URL/anon/service_role a Vercel (ver `ENV.md`). Pegar `sql/001_esquema_aiuda_cm.sql` (esquema `aiuda_cm`; el proyecto ya tiene otra app en `public`, no se toca). *(texto anterior:* `sql/001` y `sql/002` en el SQL Editor.
 - ☐ **Dominio en Vercel** y proyecto conectado al repo.
 
 ## Cómo lo hacemos juntos
