@@ -1,5 +1,6 @@
 import { supabaseServidor } from '@/lib/supabase/servidor'
-import { salir } from '../login/acciones'
+import Link from 'next/link'
+import { completitud, type Perfil } from '@/lib/ficha'
 import { crearMarca, crearOrganizacion } from './acciones'
 
 export const dynamic = 'force-dynamic'
@@ -14,7 +15,7 @@ export default async function Panel({ searchParams }: { searchParams: Promise<{ 
     .maybeSingle()
   const org = (membresia?.organizaciones as unknown as { id: string; nombre: string } | null) ?? null
   const { data: marcas } = org
-    ? await supabase.from('marcas').select('id, nombre, sector').eq('org_id', org.id).order('creada_en')
+    ? await supabase.from('marcas').select('id, nombre, sector, perfil').eq('org_id', org.id).order('creada_en')
     : { data: [] }
   const { data: conexiones } = org
     ? await supabase.from('conexiones').select('marca_id, plataforma, nombre_cuenta, estado, vence_en').eq('org_id', org.id)
@@ -22,7 +23,6 @@ export default async function Panel({ searchParams }: { searchParams: Promise<{ 
 
   return (
     <main className="contenedor">
-      <form action={salir} style={{ float: 'right' }}><button className="secundario">Salir</button></form>
       <h1>{org ? org.nombre : 'Bienvenido a AiUDA'}</h1>
       {error && <p role="alert" style={{ color: '#c0392b' }}>{error}</p>}
       {ok && <p role="status" style={{ color: '#1e8e5a' }}>{ok}</p>}
@@ -46,7 +46,10 @@ export default async function Panel({ searchParams }: { searchParams: Promise<{ 
                   {c.plataforma === 'instagram' ? 'Instagram' : c.plataforma}: @{c.nombre_cuenta} · {c.estado === 'activa' ? 'conectada' : 'hay que reconectar'}
                 </p>
               ))}
-              <p style={{ margin: '12px 0 0' }}><a href={`/api/conexiones/instagram/inicio?marca=${m.id}`}>Conectar Instagram</a></p>
+              <p style={{ margin: '12px 0 0' }}>
+                <Link href={`/app/negocio/${m.id}`}>Ficha del negocio ({completitud(m.perfil as Perfil).porcentaje} %)</Link>
+                {' · '}<a href={`/api/conexiones/instagram/inicio?marca=${m.id}`}>Conectar Instagram</a>
+              </p>
             </div>
           ))}
           <form action={crearMarca} className="tarjeta formulario">
