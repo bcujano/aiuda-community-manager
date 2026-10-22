@@ -24,8 +24,8 @@ export default async function Panel({ searchParams }: { searchParams: Promise<{ 
   return (
     <main className="contenedor">
       <h1>{org ? org.nombre : 'Bienvenido a AiUDA'}</h1>
-      {error && <p role="alert" style={{ color: '#c0392b' }}>{error}</p>}
-      {ok && <p role="status" style={{ color: '#1e8e5a' }}>{ok}</p>}
+      {error && <p role="alert" className="alerta-error">{error}</p>}
+      {ok && <p role="status" className="alerta-ok">{ok}</p>}
 
       {!org ? (
         <form action={crearOrganizacion} className="tarjeta formulario">

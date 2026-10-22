@@ -1,0 +1,8 @@
+/* Capa 1 · primitivos (valores crudos). Capa 2 · semánticos (lo único que usan los componentes). Capa 3 · componentes (globals.css). */
+:root {
+  --p-gris-0:#fff; --p-gris-900:#14171f; --p-gris-500:#5b6472; --p-gris-200:#e5e7ee;
+  --p-indigo-600:#4f46e5; --p-rojo-700:#b42318; --p-verde-700:#16794c;
+  --p-noche-950:#0f1115; --p-noche-100:#eceef3; --p-noche-400:#9aa3b2; --p-noche-700:#272b35; --p-indigo-300:#8b85ff;
+  --p-rojo-300:#ff8f85; --p-verde-300:#5fd3a0;
+}
+/* Los semánticos se definen por tema en src/styles/tema-*.css. Volver atrás = cambiar NEXT_PUBLIC_TEMA. */
