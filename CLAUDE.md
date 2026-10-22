@@ -61,4 +61,4 @@ Anthropic principal → OpenAI respaldo → Gemini garantía, siempre a través 
 No se repite lo que ya existe en crm-321/postpro-321: se porta, se parametriza por cliente y se corrigen sus defectos (`docs/plan/01-inventario-reuso.md`).
 
 ## Estado
-Fase: **planificación en curso** (paquete en `docs/plan/`). La construcción la hace otra sesión cuando la planificación esté completa. Diseño: receta Refero con vuelta atrás fácil (`docs/plan/04-diseno.md`). Redes: solo IG, FB, TikTok y YouTube con sus anuncios. Tope de IA US$50/mes; nada de planes de pago hasta generar dinero.
+Fase: **planificación completa, pendiente del visto bueno de Byron** (paquete en `docs/plan/`; arranque de construcción en `docs/plan/13-handoff-construccion.md`). La construcción la hace otra sesión. Diseño: receta Refero con vuelta atrás fácil (`docs/plan/04-diseno.md`). Redes: solo IG, FB, TikTok y YouTube con sus anuncios. Tope de IA US$50/mes; nada de planes de pago hasta generar dinero.

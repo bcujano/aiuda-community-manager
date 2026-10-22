@@ -1,6 +1,6 @@
 # 11 · Precios y métodos de comercialización (propuesta para decidir)
 
-> Estado: **propuesta de Byron + Claude para decidir**, no cerrada. Todo número marcado «hipótesis» se reemplaza con datos reales: costo por pieza (ledger de IA, Fase A), entrevistas a clientes y primeras ventas.
+> Estado: **APROBADA por Byron el 2026-10-22** (P-1 a P-6 sí; P-4 ampliado; P-5 con elección del usuario; P-7 reemplazado por el regalo de valor de `12`). Todo número marcado «hipótesis» se reemplaza con datos reales: costo por pieza (ledger de IA, Fase A), entrevistas a clientes y primeras ventas.
 > Restricciones ya decididas: nada de planes de pago hasta generar dinero; tope de IA US$50/mes; redes IG/FB/TikTok/YouTube con sus anuncios; superar a SaleADS (`07`).
 
 ## 1. Datos de mercado (fuentes públicas, 2026-10-22; ⚠️ verificar antes de publicar precios)
@@ -57,7 +57,7 @@ El tope sirve mientras construimos. Con clientes, **el presupuesto de IA debe cr
 ## 4. Cómo se cobra (Ecuador)
 | Etapa | Método | Notas (⚠️ verificar) |
 |---|---|---|
-| **Primeros 5 clientes** | **Transferencia bancaria** o link de pago + **factura electrónica del SRI** | Costo cero de plataforma; se cobra a mano mes a mes. Ideal para validar |
+| **Primeros clientes** | **El usuario elige: transferencia bancaria o link de pago** (+ **factura electrónica del SRI**) | Transferencia: costo cero, conciliación manual con comprobante. Link de pago: proveedor por definir (⚠️ Kushki u otro; tarifas y tarjetas locales a confirmar). La app registra el pago y activa el plan |
 | Crecimiento | **Kushki** (cobro recurrente con tarjeta documentado para Ecuador) o proveedor local equivalente | Payphone parece orientado a cobros únicos; confirmar tarifas y si acepta tarjetas de emisores ecuatorianos |
 | Clientes fuera de Ecuador | PayPal / **Stripe** | **No confirmé que Stripe admita comercios ecuatorianos** (ninguna fuente lo lista). Alternativas: proveedor «comerciante de registro» (Paddle, Lemon Squeezy, Polar: ⚠️ ver si pagan a Ecuador) o **sociedad en EE. UU. con Stripe Atlas**, que además encaja con la estructura de la visa (O-1A) → **decisión con abogado**, no antes del primer ingreso |
 | Impuestos | IVA y retenciones según cliente (Ecuador/exterior) | Contador: tratamiento de servicios al exterior y tarifa vigente de IVA |
@@ -67,9 +67,9 @@ El tope sirve mientras construimos. Con clientes, **el presupuesto de IA debe cr
 **Principio:** venta **liderada por el fundador**, con el producto como prueba. En LATAM se vende por **WhatsApp y con demo sobre el negocio del cliente**.
 
 1. **Cliente cero y caso real (semana 0–4).** 321 publica con AiUDA; se documenta el antes/después con **datos de la API**. Es el activo de venta número uno.
-2. **Diagnóstico gratis como imán (siempre).** El prospecto pone su Instagram/web → el sistema arma **ficha, puntaje y primer mes propuesto** (sin publicar nada). Costo de IA ≈ centavos; convierte curiosidad en demo.
+2. **Regalo de valor «Tu Semana 1 lista» (siempre).** Ficha rastreada + diagnóstico + 3 piezas reales + calendario de 7 días + borrador de campaña + competencia, en 10 minutos y sin tarjeta; más herramientas públicas gratis. Diseño, psicología y reglas en `12`.
 3. **Demo de 15 minutos con SU negocio** (por WhatsApp/Meet): ya tiene su ficha rastreada. Cierre con **piloto de 14 días** con tope de IA y sin publicación automática.
-4. **Entrada por vertical:** **inmobiliarias y constructoras de Quito** (red de Byron y caso 321) → luego clínicas/estética, restaurantes, comercios. Un vertical a la vez, con skills y plantillas propias.
+4. **Mercado de entrada (decisión de Byron):** **todo el sector inmobiliario** — **inmobiliarias, desarrolladoras/constructoras/promotoras y agentes o corredores independientes** — como punta de lanza (red de Byron y caso 321), **y abiertos a cualquier negocio** para posicionarnos rápido. El **producto es genérico desde el primer día** (ficha y plantillas generales); la **profundidad vertical** (skills, guías, ejemplos) se construye primero para inmobiliario y se añaden paquetes por vertical según llegue la demanda. Un **agente** encaja en Arranque/Crecimiento; una **desarrolladora** con varios proyectos usa un «negocio» por proyecto (Agencia o negocios extra).
 5. **Alianzas con multiplicadores:** **agencias pequeñas y community managers freelance** (plan Agencia + **20 % recurrente** de lo que traigan), cámaras y gremios (construcción, inmobiliarios), contadores y proveedores de web/hosting.
 6. **Contenido propio con el producto (dogfooding):** AiUDA publica sus propios casos y «antes/después»; webinar mensual; comunidad de pymes (p. ej. en una plataforma de comunidades).
 7. **Referidos:** 1 mes gratis para quien refiere y para el referido.
@@ -105,13 +105,13 @@ Setup concierge en la primera semana; **informe mensual** con lecturas y victori
 ## 8. Decisiones para Byron
 | # | Decisión | Mi recomendación |
 |---|---|---|
-| P-1 | Escalera de precios | **39 / 89 / 229** (anual con 2 meses gratis) |
-| P-2 | Programa fundador | **US$59 congelado 12 meses + setup gratis**, máximo 10, a cambio de caso y feedback |
-| P-3 | «Setup concierge» de pago | **US$149 único** (gratis para fundadores) |
-| P-4 | Primer vertical | **Inmobiliarias y constructoras de Quito** |
-| P-5 | Cobro de los primeros 5 | **Transferencia + factura SRI**, sin pasarela |
-| P-6 | Comisión a agencias aliadas | **20 % recurrente** |
-| P-7 | Diagnóstico gratis como imán | **Sí** (sin publicar nada; con tope de IA por prospecto) |
+| P-1 | Escalera de precios | ✅ **39 / 89 / 229** (anual con 2 meses gratis) |
+| P-2 | Programa fundador | ✅ **US$59 congelado 12 meses + setup gratis**, máximo 10, a cambio de caso y feedback |
+| P-3 | «Setup concierge» de pago | ✅ **US$149 único** (gratis para fundadores) |
+| P-4 | Mercado de entrada | ✅ **Inmobiliario completo (inmobiliarias, desarrolladoras, agentes) + abierto a todo el mercado** (producto genérico, profundidad vertical primero en inmobiliario) |
+| P-5 | Cobro | ✅ **El usuario elige transferencia o link de pago**; factura SRI |
+| P-6 | Comisión a agencias aliadas | ✅ **20 % recurrente** |
+| P-7 | Imán | ✅ **Reemplazado por «Regalo de valor»** (`12`): herramientas gratis + «Tu Semana 1 lista» con cupos reales |
 | P-8 | Cobro con tarjeta y estructura legal | **Decidir con abogado y contador** tras el primer ingreso (Kushki vs EE. UU./Stripe Atlas) |
 
 ## Fuentes (2026-10-22; no oficiales)

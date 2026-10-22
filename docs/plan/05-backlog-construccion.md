@@ -77,8 +77,9 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 - **Aceptación:** número no autorizado no obtiene nada; orden de gasto sin confirmación no se ejecuta; topes diario/mensual de mensajes y de costo respetados.
 
 ## E10 · Planes, cobro y uso (M)
-- Stripe (suscripción + add-on Ads), límites por plan (marcas, piezas, créditos de IA, redes), medición desde `ia_llamadas`, portal de cliente, impuestos, pruebas gratis acotadas, avisos de límite.
-- **Aceptación:** al pasar un límite, bloqueo claro y no silencioso; facturas reconciliadas con el ledger.
+- **Cobro (decisión 2026-10-22): el usuario elige transferencia o link de pago.** Registro de pagos y comprobantes, activación/suspensión de plan, recordatorios de vencimiento, **factura electrónica del SRI** (manual o con proveedor), programa fundador y plan anual. Pasarela con tarjeta recurrente (Kushki u otra) y estructura en EE. UU. **después del primer ingreso**. Stripe en pausa.
+- Límites por plan (negocios, piezas, créditos de IA, redes), medición desde `ia_llamadas`, portal de cliente, avisos de límite.
+- **Aceptación:** al pasar un límite, bloqueo claro y no silencioso; cada pago registrado activa el plan correcto; conciliación contra el ledger.
 
 ## E11 · Modo agencia (M)
 - Selector de marca, vista consolidada, permisos por marca, **enlace firmado** para que el cliente final apruebe sin cuenta, marca blanca (logo y dominio).
@@ -103,3 +104,9 @@ E0 → E1 → (E2 ∥ E3) → E4 → E5 → [Fase A terminada] → E6 → E7 →
 
 ## E16 · Promesas y calidad de producto (S, transversal)
 Panel de operación con las 10 promesas de `07` §3 medidas (borrador de campaña < 60 s, alta < 10 min, primera respuesta < 15 min, etc.); revisión mensual; biblioteca de estrategias ≥50 (`07` §5).
+
+## E17 · Motor de crecimiento y «Regalo de valor» (M–L, transversal; arranca en Fase A/B)
+- **Fuente:** `12-psicologia-de-ventas-y-regalo-de-valor.md` y `11-precios-y-comercializacion.md`.
+- **Alcance:** (a) **herramientas públicas gratis** (auditoría express de Instagram, calculadora de ahorro, generador de ganchos, calendario 30 días, guía de anuncios de vivienda); (b) **«Tu Semana 1 lista»**: ficha rastreada + diagnóstico + 3 piezas + calendario de 7 días + borrador de campaña + competencia, en ≤10 min, en pantalla y PDF; (c) **cupos diarios reales** ligados al presupuesto de IA y **antiabuso** (verificación de WhatsApp/correo, una por negocio/cuenta); (d) calificación suave; (e) embudo medido (visita → regalo → ficha ≥80 % → piloto → pago) con panel; (f) referidos (1 mes gratis); (g) programa fundador (10 cupos reales); (h) **lista prohibida de dark patterns** como prueba automática de copy.
+- **Producto abierto a todo el mercado:** ficha y plantillas **genéricas** + **paquetes por vertical** (inmobiliario primero: inmobiliarias, desarrolladoras, agentes); «negocio» puede ser **marca o proyecto**.
+- **Aceptación:** regalo completo en ≤10 min; costo por regalo medido en el ledger y dentro del tope; el contador de cupos **coincide** con el presupuesto restante; ninguna pieza publicada sin aprobación; revisión de copy sin patrones prohibidos.

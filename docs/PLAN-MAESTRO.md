@@ -163,3 +163,6 @@ Entregables para la solicitud (los preparamos en Fase 4): plan de negocio, model
 - Redes: **solo Instagram, Facebook, TikTok y YouTube**, con sus anuncios (Meta Ads, TikTok Ads, Google Ads/YouTube).
 - Diseño: **receta Refero con vuelta atrás fácil** (`plan/04-diseno.md` §6).
 - Tope de IA: **US$50/mes**. **Nada de planes de pago hasta generar dinero** (riesgo de Vercel Hobby asumido; `plan/09`).
+
+## 15. Cierre de planificación (2026-10-22)
+Precios 39/89/229, programa fundador US$59, Setup concierge US$149, comisión 20 % a agencias, cobro por transferencia o link elegido por el usuario, mercado inmobiliario completo (inmobiliarias, desarrolladoras, agentes) abierto a todo el mercado, y **Regalo de valor** como imán (`plan/11`, `plan/12`). Paquete final: `plan/13-handoff-construccion.md`.
