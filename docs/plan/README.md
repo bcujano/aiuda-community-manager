@@ -16,6 +16,7 @@
 | 09 | [`09-gratis-hasta-5-clientes.md`](09-gratis-hasta-5-clientes.md) | Plan de costo cero hasta lanzar y llegar a 5 clientes; gatillos de pago |
 | 11 | [`11-precios-y-comercializacion.md`](11-precios-y-comercializacion.md) | Escalera de precios (aprobada), programa fundador, cobro por transferencia o link, métodos de venta |
 | 12 | [`12-psicologia-de-ventas-y-regalo-de-valor.md`](12-psicologia-de-ventas-y-regalo-de-valor.md) | Psicología de ventas con evidencia, ética, y el «Regalo de valor» |
+| 14 | [`14-prueba-acida.md`](14-prueba-acida.md) | Prueba ácida: 14 hallazgos, correcciones y veredicto |
 | 13 | [`13-handoff-construccion.md`](13-handoff-construccion.md) | **Paquete final para la sesión de construcción** |
 | 10 | [`10-mejoras-sobre-lo-existente.md`](10-mejoras-sobre-lo-existente.md) | Qué se mejora de cada módulo que se lleva; biblioteca de skills |
 
@@ -35,4 +36,5 @@
 | Diseño | ✅ receta Refero con vuelta atrás; `design.md` se genera al construir |
 | Decisiones | ✅ cerradas (`06`, `11`); verificaciones técnicas en `13` §8 |
 | Precios | ✅ aprobados; se ajustan con el costo real por pieza (Fase A) |
+| Prueba ácida | ✅ `14-prueba-acida.md` (14 hallazgos corregidos) |
 | **Paquete final para construir** | ✅ `13-handoff-construccion.md` — **falta el visto bueno de Byron** |

@@ -49,10 +49,12 @@ Se usa **toda la psicología que funciona con la verdad por delante**; no se usa
 ### Nivel 1 · «Tu Semana 1 lista» (con WhatsApp o correo) ⭐ el imán principal
 Entregado **en pantalla y en PDF en ≤ 10 minutos**, con **su** negocio:
 - Ficha rastreada + **diagnóstico completo** (puntaje por área calculado) + **5 victorias rápidas**.
-- **3 piezas reales** con su marca (post, carrusel e historia), editables.
-- **Calendario de 7 días** y **1 borrador de campaña** (en pausa, sin gastar nada).
+- **3 piezas reales** con su marca (post, carrusel e historia), editables, compuestas con el **motor vectorial** (sin imágenes generadas: costo ≈ 0).
+- **Calendario de 7 días** y **1 plan de campaña listo para cargar** (**no se crea en Meta** hasta que el usuario conecte su cuenta; no gasta nada).
 - **Informe de competencia** (top 3, con origen).
-- **Costo de IA por regalo: hipótesis US$0,30–1,00** (se mide en el ledger).
+- **Costo de IA por regalo:** hipótesis **≤ US$0,15–0,50**; objetivo **≤ US$0,15** con plantillas vectoriales, modelos pequeños y caché (se mide en el ledger).
+
+**Cómo se obtienen los datos sin que el prospecto conecte nada** (prueba ácida): (1) **su sitio web** (lectura pública); (2) **su Instagram público** vía *Business Discovery* — solo cuentas Business/Creator; ⚠️ requiere un token de AiUDA con inicio de sesión de Facebook, comparte límites de llamadas entre todos los prospectos y debe verificarse en la construcción; (3) **lo que el prospecto escribe o pega** (descripción, captions, enlaces). **Plan B** si (2) no alcanza: formulario + captions pegados. Conectar la cuenta por OAuth es una **mejora opcional** posterior, nunca un requisito para recibir el regalo.
 **Por qué es más poderoso que un diagnóstico:** el prospecto **recibe algo que ya puede usar** (efecto de dotación), ve **su** negocio en el producto (autoridad y personalización) y queda a **un paso** de publicarlo (compromiso).
 
 ### Nivel 2 · Piloto de 14 días
@@ -62,8 +64,9 @@ Publicación **asistida con aprobación** y tope de gasto; sin tarjeta.
 Arranque / Crecimiento / Fundador; **transferencia o link de pago, a elección del usuario** (`11` §4).
 
 ### Reglas del regalo
-- **Cupos reales:** «Hoy quedan N regalos» = cupos diarios que alcanza el presupuesto de IA (p. ej. 10/día con el tope de US$50 → ajustar). Es escasez **verdadera**.
-- **Una por negocio** (verificación de WhatsApp/correo y de cuenta de Instagram) para evitar abuso.
+- **Cupos reales:** «Hoy quedan N regalos» = lo que alcanza la **porción del presupuesto de IA reservada a regalos** (≈35 % de US$50 ≈ US$17/mes → **≈ 35 regalos/mes a US$0,50 o ≈ 110 a US$0,15, es decir 1–4 al día**). Crece con los ingresos (IA ≤ 25 % del MRR). Es escasez **verdadera**. Es escasez **verdadera**.
+- **Una por negocio** (verificación de WhatsApp/correo y de cuenta de Instagram) y límite por IP/dispositivo para evitar abuso.
+- **Datos de terceros:** solo **cuentas públicas Business/Creator** y sitios públicos; aviso de privacidad antes de generar; **se borran a los 30 días** si el prospecto no se registra (LOPDP). Nadie puede usar la herramienta para perfilar a personas físicas.
 - **Calificación suave** (3 preguntas: qué vendes, cuánto inviertes hoy, quién publica) para priorizar y **dirigir** mejor la oferta; no para excluir.
 - **Sin tarjeta, sin letra chica.**
 - **Garantía de reversión de riesgo:** primer mes con **devolución a los 14 días** si no ve valor (por transferencia es manual) y **pausa sin penalización**. ⚠️ Confirmar con contador/abogado.

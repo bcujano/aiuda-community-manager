@@ -49,7 +49,7 @@ Dueño: Byron. Objetivo: producto ganador y dossier para startup visa (EE. UU., 
 - Idioma: español (la copy de cara al lead sigue la voz de cada cliente; el voseo rioplatense solo si el cliente lo pide).
 
 ## Stack objetivo
-Next.js (App Router) + React + TypeScript + Tailwind + shadcn/ui · Supabase (Postgres + Auth + Storage, RLS) · motor Python (FastAPI) para generación · Vercel + Railway. Detalle en el plan §6.
+Next.js (App Router) + React + TypeScript · Supabase (Postgres + Auth + Storage, RLS, `pg_cron` + `pg_net`) · Vercel (Hobby mientras no haya ingresos). **Todo en TypeScript, sin Railway, Python, n8n ni Chatwoot en la etapa gratuita**; la generación larga usa trabajos asíncronos con sondeo (`docs/plan/09`). Estilos: tokens propios con temas (`docs/plan/04` §6); Tailwind/shadcn solo si ayudan.
 
 ## Git
 Una sola rama: **`main`**. Byron no quiere ramas ni PRs: se trabaja y se sube directo a `main`.

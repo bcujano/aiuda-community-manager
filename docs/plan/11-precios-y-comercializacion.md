@@ -23,7 +23,7 @@ No encontré tarifas confiables de **agencias** en Ecuador: hay que pedir 3–5 
 | Plan | Mensual | Anual (2 meses gratis) | Para quién | Incluye (hipótesis) |
 |---|---|---|---|---|
 | **Arranque** | **US$39** | US$390 | Negocio pequeño, empieza | 1 negocio · Instagram + Facebook · 12 piezas/mes · calendario y aprobación · respuestas **sugeridas** · 1 campaña Meta (en pausa → tú activas) · diagnóstico y ficha · IA incluida ≈ US$5 |
-| **Crecimiento** ⭐ | **US$89** | US$890 | Pyme que quiere resultados | 1 negocio · **IG + FB + TikTok + YouTube** · 30 piezas/mes con reels/video (créditos incluidos) · **bandeja con respuestas automáticas** · anuncios Meta + TikTok · competencia y **Ad Library** · asistente por WhatsApp · informes con lecturas · IA incluida ≈ US$18 |
+| **Crecimiento** ⭐ | **US$89** | US$890 | Pyme que quiere resultados | 1 negocio · **IG + FB + TikTok + YouTube** · 30 piezas/mes (posts, carruseles, historias y reels hechos con fotos: costo ≈ 0) **+ clips de video con IA limitados según el costo medido** (hipótesis 4/mes; más en packs) · **bandeja con respuestas automáticas** · anuncios Meta + TikTok · competencia y **Ad Library** (en el modo que permita el acceso, `08` §4) · asistente por WhatsApp **cuando esté disponible** (Fase B; requiere WhatsApp Business Platform: ⚠️ verificación y costo por conversación) · informes con lecturas · IA incluida ≈ US$18 |
 | **Agencia** | **US$229** | US$2.290 | Agencias y consultores | **10 negocios** · marca blanca · **aprobación del cliente por enlace** · créditos agrupados · todo lo de Crecimiento · IA incluida ≈ US$60 en conjunto · **+US$15 por negocio extra** |
 **Complementos:** pack de créditos de imagen/video US$10 y US$25; **«Setup concierge»** (diagnóstico + configuración personalizada + primer mes de contenido, con una persona) **US$149 único**; negocio extra US$15–25/mes.
 
@@ -42,7 +42,7 @@ No encontré tarifas confiables de **agencias** en Ecuador: hay que pedir 3–5 
 | Comisión de cobro (≈4 %) | ≈ US$3,5 |
 | Infraestructura prorrateada | ≈ US$3 |
 | **Margen bruto estimado** | **≈ US$64 (≈72 %)** |
-Meta: margen bruto **≥ 70 %**. Si el costo real por pieza lo rompe, se ajusta el tope de IA, no se baja la calidad. **El costo real por pieza sale del ledger en la Fase A.**
+Meta: margen bruto **≥ 70 %**. **Ojo con el video de IA:** es el costo que más puede romper el margen (⚠️ precio por segundo a verificar); por eso se limita en el plan y se vende en packs. Si el costo real por pieza lo rompe, se ajusta el tope de IA, no se baja la calidad. **El costo real por pieza sale del ledger en la Fase A.**
 
 ### Regla importante sobre tu tope de IA (US$50/mes)
 El tope sirve mientras construimos. Con clientes, **el presupuesto de IA debe crecer con los ingresos**: regla propuesta **IA total ≤ 25 % del MRR** (ingreso mensual recurrente). Con 5 clientes de Crecimiento a precio fundador (US$59) ya se superan US$50 en IA si cada uno gasta su cupo; por eso el tope es **por cliente** y el global sube cuando entra dinero.
@@ -51,6 +51,7 @@ El tope sirve mientras construimos. Con clientes, **el presupuesto de IA debe cr
 - **Crecimiento a US$59/mes** (−34 %), **precio congelado 12 meses** y **Setup concierge gratis**.
 - A cambio: **caso de estudio** con permiso (métricas **verificadas desde la API**), 2 llamadas de feedback y permiso para usar su logo.
 - Cupos limitados (10); se anuncia como tal (escasez real, no inventada).
+- **Hasta la revisión de Meta**, los fundadores se conectan como **probadores de la app** (roles en modo desarrollo; ⚠️ verificar el límite de probadores): es la única vía para cuentas ajenas sin App Review (`13` compuertas).
 - Sirve para tres cosas: **ingresos** (condición para pagar Vercel Pro/Supabase Pro), **pruebas** de la promesa y **tracción para la visa**.
 - **Cliente cero:** 321 usa el sistema primero; su caso es el primero que se publica.
 

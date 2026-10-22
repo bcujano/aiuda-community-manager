@@ -9,7 +9,7 @@
 | **Supabase** | Sí | 500 MB de base, 1 GB de archivos, 5 GB de ancho de banda, 50.000 usuarios activos, **se pausa tras ~7 días sin actividad**, sin copias de seguridad (fuentes terciarias) | Primer cliente real, o base > ~350 MB |
 | **Vercel** | Hobby | **Solo uso personal/no comercial** (documentación oficial); funciones de **10 s por defecto, hasta 60 s** (oficial, a confirmar) | **Primer cliente que pague, o el día que 321 lo use para su negocio real** → Pro (US$20/mes) |
 | **GitHub** | Sí | Repos privados gratis; GitHub Actions con minutos gratuitos | — |
-| **Colas/cron** | Sí | **Supabase `pg_cron` + `pg_net`** llaman a nuestros endpoints cada minuto (con `CRON_SECRET` en header); GitHub Actions (mín. 5 min) como respaldo | — |
+| **Colas/cron** | Sí | ⚠️ confirmar que `pg_cron` y `pg_net` están en el plan gratuito. **Supabase `pg_cron` + `pg_net`** llaman a nuestros endpoints cada minuto (con `CRON_SECRET` en header); GitHub Actions (mín. 5 min) como respaldo | — |
 | **Generación larga** (video, lotes) | Sí, sin servidor propio | Los proveedores de video/imagen trabajan con **trabajos asíncronos**: se envía, se consulta por cron y se recibe por webhook. Evita funciones de minutos | Solo si un proveedor exige proceso largo |
 | **Railway / n8n / Chatwoot** | **No se usan en esta etapa** | Costo y RAM | Fase B/C si hace falta (D-7) |
 | **Correo** (Resend u otro) | Plan gratis (⚠️ cifras sin verificar) | Dominio verificado para producción | Volumen |
@@ -21,7 +21,7 @@
 | **IA — Gemini** | **Parcial** | Nivel gratuito para modelos de texto «flash»; **imagen y video sin nivel gratuito**; los límites cambian y las fuentes **discrepan** (p. ej. 5–15 solicitudes/min) | Cuando se superen los límites |
 
 ## 2. Presupuesto de IA mínimo (lo único que no es gratis)
-- **Tope mensual de IA en el motor: US$50** (decidido por Byron). Reparto sugerido: 60 % planes/redacción (Anthropic), 25 % respaldo/pruebas (OpenAI/Gemini de pago), 15 % reserva; alerta al 80 % y corte de tareas no esenciales al 100 %.
+- **Tope mensual de IA en el motor: US$50** (decidido por Byron). Reparto sugerido mientras construimos: **45 % desarrollo y pruebas** (planes/redacción), **35 % regalos de valor** (≈US$17/mes ⇒ 1–4 regalos al día según su costo), **20 % reserva y respaldos**; alerta al 80 % y corte de tareas no esenciales al 100 %. El tope global sube con los ingresos (IA ≤ 25 % del MRR).
 - **«Modo ahorro» del router** (`03` §12): tareas simples a Gemini flash (gratis) o Haiku; solo planes y diagnóstico usan el modelo grande; **caché del prefijo de skills**; límites de reintentos; sin regenerar sin pedir.
 - Pruebas con **cuentas propias de 321** y anuncios solo con topes de **US$1–5/día**.
 - El **ledger** (`ia_llamadas`) mide el costo real por pieza desde la primera semana: es el dato que fija precios.
@@ -38,6 +38,9 @@ Next.js en Vercel (UI + API) ↔ Supabase (datos, auth, Storage, `pg_cron`, `pg_
 | Base llena (500 MB) | Retención de `ia_llamadas` (90 días), limpieza de medios, sin binarios en tablas |
 | Funciones de 10–60 s | Trabajos asíncronos + sondeo; nada de procesos largos |
 | IA cara | Tope mensual, modo ahorro, ledger |
+
+### Cuenta de almacenamiento (prueba ácida)
+Supuesto: 5 clientes × (30 imágenes de ≈300 KB + 4 videos de ≈5 MB) ≈ **145 MB al mes** en Storage (límite gratuito 1 GB ⇒ ~7 meses sin limpiar). **Regla:** conservar miniaturas, **borrar el medio original 30 días después de publicado** (Meta ya lo descargó), límite por cliente y alerta al 70 %. Los reels hechos con fotos (ffmpeg) pesan menos que los clips de IA.
 
 ## 5. Gatillos de pasar a pago
 1. **Primer ingreso recibido** → Vercel Pro.

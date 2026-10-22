@@ -15,7 +15,7 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 ## Fases
 | Fase | Épicas | Resultado |
 |---|---|---|
-| **A · «321 lo usa»** | E0, E1, E2 (básico), E3, E4 (básico), E5 (IG/FB directo; TikTok privado y YouTube asistido) | Plan del mes → piezas → aprobación → publicación en Instagram/Facebook de 321 |
+| **A · «321 lo usa»** | E0, E1, E2 (básico), E3, E4 (básico), E5 (**IG/FB directo; TikTok y YouTube solo asistido**) | Plan del mes → piezas → aprobación → publicación en Instagram/Facebook de 321 |
 | **B · Beta** | E6, E7 (Meta), E8, E9, E10 | Bandeja, anuncios con topes, métricas, asistente por chat/WhatsApp, cobro |
 | **C · Lanzamiento** | E11, E13, E14, **E12 (revisiones de Meta/TikTok/Google/YouTube cuando el sistema esté sólido)**, TikTok (E5/E7) | Agencias, revisión de Meta aprobada, landing con diseño, operación estable |
 | **D · Ampliación** | Google Ads (YouTube), YouTube directo tras auditoría, E15 | Anuncios de YouTube y extras |
@@ -27,7 +27,7 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 - **Aceptación:** 2 organizaciones aisladas en todas las tablas; roles probados (lector no escribe, editor no aprueba); build en CI.
 
 ## E1 · Motor de IA (M)
-- **Alcance:** `03-motor-ia.md` completo: router TS + Python con contrato común, `ia_modelos`, `ia_precios`, `ia_llamadas`, presupuestos, circuito, sondas, validadores (esquema, frases prohibidas, cifras con fuente, límites), evaluaciones.
+- **Alcance:** `03-motor-ia.md` completo: router **en TypeScript** con contrato portable, `ia_modelos`, `ia_precios`, `ia_llamadas`, presupuestos, circuito, sondas, validadores (esquema, frases prohibidas, cifras con fuente, límites), evaluaciones.
 - **Portar:** `motor/skills.py` (PROHIBIDAS, infracciones, corrección).
 - **Aceptación:** simulando caída de Anthropic y luego de OpenAI, la tarea se completa con Gemini y queda registrado; con los tres caídos queda en cola y la UI lo informa; ≥30 casos por tarea con puntajes; costo por llamada visible.
 
@@ -50,7 +50,7 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 
 ## E5 · Publicación (M–L)
 - **Reescribir** el publicador (no portar tal cual): `publicaciones` con una fila por plataforma, `tomar_publicaciones()` (SKIP LOCKED + lease), contenedor→`FINISHED`→`media_publish`, reanudar con `creation_id`, token con aviso de vencimiento, secreto en header, error visible con reintento manual. Referencia: `api/post-pro/publish|schedule`, `n8n/321-post-pro-publicar-programadas`.
-- **Redes (Byron 2026-10-22): solo Instagram, Facebook, TikTok y YouTube** (`08`), cada una en modo **directo** o **asistido** según acceso: Instagram/Facebook directo; TikTok directo en desarrollo (privado) y asistido para público; YouTube asistido hasta auditar. «Una idea, cuatro formatos» (`08` §6).
+- **Redes (Byron 2026-10-22): solo Instagram, Facebook, TikTok y YouTube** (`08`), cada una en modo **directo** o **asistido** según acceso: Instagram/Facebook directo; **Fase A: Instagram y Facebook directo; TikTok y YouTube solo asistido (paquete listo para publicar).** La API de TikTok en desarrollo (privado) entra en la Fase B; YouTube directo, tras la auditoría. «Una idea, cuatro formatos» (`08` §6).
 - **Programador:** `pg_cron` + `pg_net` de Supabase (gratis) llamando a un endpoint con `CRON_SECRET` en header (`09`); sin Railway en esta etapa.
 - **Aceptación:** simulando fallo a mitad de camino, **ninguna publicación duplicada**; pieza colgada se recupera sola; publicar en IG y FB falla en una y se reintenta solo esa.
 
@@ -68,7 +68,7 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 ## E8 · AiUDA Insights + inteligencia competitiva (L)
 - **Portar:** `api/marketing/resultados` + `lib/marketing-resultados.ts` + `resultados/page.tsx` + `reports/post-pro`.
 - **Alcance:** nivel **cuenta** y nivel **pieza por pieza** (alcance, interacción, guardados, compartidos, leads, ventas cuando haya dato); patrones por gancho/tema/formato/hora **con tamaño mínimo de muestra**; competencia (métricas públicas, patrones, ideas adaptadas, con origen); lecturas automáticas; **atribución** a leads/ventas solo con seguimiento real.
-- **Ad Library y competencia (`08` §5):** validar con consulta de solo lectura qué devuelve la fuente oficial para Ecuador/LATAM; detector de ángulos, ofertas, formatos y duración de anuncios de la competencia; **ideas adaptadas** (sin copiar); cruce con métricas propias → «qué orgánico impulsar»; patrones públicos de competidores (Business Discovery).
+- **Ad Library y competencia (`08` §4):** **tres modos** (API oficial si devuelve datos; **asistido con enlaces/capturas y visión** siempre disponible; proveedor de pago en fase D); detector de ángulos, ofertas, formatos y duración de anuncios de la competencia; **ideas adaptadas** (sin copiar); cruce con métricas propias → «qué orgánico impulsar»; patrones públicos de competidores (Business Discovery).
 - **Aceptación:** ninguna cifra sin origen; sin muestra suficiente → «sin dato suficiente»; el informe de competencia cita la fuente de cada hallazgo.
 
 ## E9 · AiUDA Asistente: chat + WhatsApp texto/audio (M)
@@ -110,3 +110,6 @@ Panel de operación con las 10 promesas de `07` §3 medidas (borrador de campañ
 - **Alcance:** (a) **herramientas públicas gratis** (auditoría express de Instagram, calculadora de ahorro, generador de ganchos, calendario 30 días, guía de anuncios de vivienda); (b) **«Tu Semana 1 lista»**: ficha rastreada + diagnóstico + 3 piezas + calendario de 7 días + borrador de campaña + competencia, en ≤10 min, en pantalla y PDF; (c) **cupos diarios reales** ligados al presupuesto de IA y **antiabuso** (verificación de WhatsApp/correo, una por negocio/cuenta); (d) calificación suave; (e) embudo medido (visita → regalo → ficha ≥80 % → piloto → pago) con panel; (f) referidos (1 mes gratis); (g) programa fundador (10 cupos reales); (h) **lista prohibida de dark patterns** como prueba automática de copy.
 - **Producto abierto a todo el mercado:** ficha y plantillas **genéricas** + **paquetes por vertical** (inmobiliario primero: inmobiliarias, desarrolladoras, agentes); «negocio» puede ser **marca o proyecto**.
 - **Aceptación:** regalo completo en ≤10 min; costo por regalo medido en el ledger y dentro del tope; el contador de cupos **coincide** con el presupuesto restante; ninguna pieza publicada sin aprobación; revisión de copy sin patrones prohibidos.
+
+## Principio de construcción: rebanada vertical primero
+Antes de ampliar cualquier épica, construir **una rebanada de punta a punta** con lo mínimo: ficha → plan del mes (1 pieza) → pieza de texto + vectorial → aprobar → publicar en Instagram (cuenta de 321) → ledger de IA. Probarla con datos reales y **solo entonces** ampliar a más tipos de pieza, redes y funciones. (Prueba ácida: la Fase A completa es grande; la rebanada reduce el riesgo.)

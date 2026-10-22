@@ -15,7 +15,7 @@ ejecutar({ tarea, org_id, marca_id, entrada, esquema_salida, prioridad })
   → { salida (validada), meta: { proveedor, modelo, tokens_in, tokens_out, costo_usd,
       latencia_ms, intentos, fallback_de|null, cache_hit } }
 ```
-Implementado **dos veces con el mismo contrato y pruebas compartidas**: TypeScript (Next.js: bandeja, ficha, asistente) y Python (motor de generación por lotes). Fixtures JSON comunes en `evals/`. (D-9)
+Se implementa **una sola vez, en TypeScript** (Fase A). El contrato es portable: si más adelante hay un worker en otro lenguaje, replica este contrato con los mismos fixtures JSON de `evals/`. (D-9)
 
 ## 3. Catálogo de tareas y cadena por tarea
 Los IDs de modelo viven en la tabla `ia_modelos` (editable sin desplegar). **Verificar los IDs vigentes el día de construir.** Familias conocidas hoy de Anthropic: Opus 5.5 (`claude-opus-5-5`), Sonnet 5.5 (`claude-sonnet-5-5`), Haiku 5.5 (`claude-haiku-5-5`) y Fable 5.1 (`claude-fable-5-1`).

@@ -29,11 +29,16 @@ Mientras TikTok Ads y Google Ads no tengan acceso aprobado para terceros, el sis
 ## 4. Ad Library y competencia
 | Fuente | Qué da | Acceso real (⚠️) | Uso en AiUDA |
 |---|---|---|---|
-| **Meta Ad Library** | Por anuncio: creativo (texto, imagen/video), página, fechas, plataformas, activo/inactivo, URL del snapshot. **Gasto e impresiones solo por rangos y solo en anuncios políticos/sociales**; anuncios con menos de 100 impresiones llevan etiqueta | La API pública está orientada a políticos/sociales y a la UE; para **anuncios comerciales fuera de la UE las fuentes dicen que no devuelve lo mismo**. Existe la herramienta oficial de anuncios de Meta disponible en esta plataforma (`ads_library_search`): busca por palabra, página y país, hasta 50 por consulta, requiere cuenta de anuncios activa y prohíbe extracción masiva | **Validar en la construcción** con una consulta de solo lectura qué devuelve para Ecuador/LATAM. Si funciona: detector de **ángulos, ofertas, formatos y duración** de anuncios de la competencia; ideas adaptadas; cruce con tus métricas → **«qué orgánico impulsar»** |
-| **Instagram Business Discovery** | Métricas públicas de cuentas profesionales | Requiere la ruta con Facebook Login | **Ya probado en crm-321** (16 competidores) |
+| **Meta Ad Library** | Por anuncio: creativo (texto, imagen/video), página, fechas, plataformas, activo/inactivo. **Gasto e impresiones solo por rangos y solo en anuncios políticos/sociales**; los anuncios con menos de 100 impresiones llevan etiqueta | La **API pública** está orientada a anuncios políticos/sociales y a la UE; para **anuncios comerciales fuera de la UE las fuentes dicen que no devuelve lo mismo**. **Corrección de la prueba ácida:** la herramienta `ads_library_search` que usa Claude en esta sesión es un **conector de Claude, no una API del producto**: AiUDA **no puede depender de ella** en producción | Se ofrece en **tres modos** (abajo) |
+| **Instagram Business Discovery** | Métricas y publicaciones públicas de cuentas Business/Creator | Requiere la ruta con Facebook Login (token de AiUDA); **límites de llamadas compartidos** entre todos los clientes y prospectos ⚠️ | **Ya probado en crm-321** (16 competidores con el token de 321); verificar a escala |
 | **TikTok Commercial Content Library** | Anuncios comerciales | **Solo datos de la UE** según fuentes | No cubre LATAM; sin uso inicial |
 | **Google Ads Transparency Center** | Anuncios por anunciante (incluye YouTube) | **No encontré API oficial**; proveedores que lo raspan (riesgo con términos) | Enlace de consulta manual desde la ficha del competidor |
 | **Búsqueda web** | Tendencias | Adaptador por proveedor de IA | Ya existe (`investigar_tendencias`) |
+### Modos del Ad Library (para no prometer lo que no se puede)
+1. **API oficial**, si en la validación (consulta de solo lectura con el token de AiUDA) devuelve anuncios comerciales de Ecuador/LATAM.
+2. **Asistido (siempre disponible):** el usuario abre el Ad Library de Meta en su navegador, **pega enlaces o sube capturas** de los anuncios de su competencia, y la IA con visión extrae **ángulo, oferta, formato y gancho** y los cruza con sus métricas. Gratis, legal y sin raspado.
+3. **Proveedor de pago** (fase D), solo si hay demanda y sus términos lo permiten.
+
 Reglas: **solo datos públicos**, citar origen, sin extracción masiva, conservar el lenguaje textual y terminar siempre con acciones. Resultado: informe «**qué hace tu competencia y qué hacer tú**», **sin copiar** contenido.
 
 ## 5. Bandeja (comentarios y mensajes)

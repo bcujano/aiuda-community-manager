@@ -31,12 +31,12 @@
 | D-6 | Composición de piezas: Pillow (Python) vs vectorial TS | **Vectorial TS como estándar** (SVG editable, reglas de diseño, 10 estilos); Pillow solo mientras 321 migra | No |
 | D-7 | Inbox: n8n vs código propio; Chatwoot | **Núcleo propio** (webhook→clasificar→responder→escalar, con pruebas); n8n para alertas y seguimientos; **Chatwoot diferido** a Fase B/C | No |
 | D-8 | Dónde corre la generación | **Sin servidor propio en la etapa gratuita:** trabajos asíncronos + `pg_cron` (`09` §3); Railway solo si hace falta | No |
-| D-9 | Router de IA duplicado TS+Python | Dos implementaciones con **contrato y pruebas compartidos** (`evals/`), para no tener un punto único de falla | No |
+| D-9 | Router de IA | **Una implementación en TypeScript** con contrato portable y pruebas en `evals/` (corregido en la prueba ácida: no hay Python en la etapa gratuita) | No |
 | D-10 | Idiomas | Español primero; inglés/portugués en lanzamiento | No |
 | D-11 | Segmentos | Inmobiliario primero; plantillas para restaurantes/clínicas/retail; **edición creadores** (marca personal) después | No |
 | D-12 | Claves propias del cliente (BYO) | Solo agencias, fase C | No |
 | D-13 | Redes y orden | **Cuatro** (`08`): Instagram/Facebook directo; TikTok privado en desarrollo y asistido para público; YouTube asistido hasta auditar; anuncios Meta → TikTok → Google (YouTube) | No |
-| D-14 | Ad Library de competidores | Validar con una consulta de solo lectura qué devuelve para Ecuador/LATAM antes de prometerla (`08` §5) | No |
+| D-14 | Ad Library de competidores | **Tres modos** (API oficial si sirve; **asistido con capturas** siempre; proveedor de pago después). Se valida la API con una consulta de solo lectura antes de prometerla (`08` §4) | No |
 | D-15 | Diseño | **Decidido:** receta Refero con vuelta atrás (`04` §6). Si Byron entrega su propio código, entra como tercer tema (`propio`) y puede ganar | No |
 
 ## C. Riesgos
@@ -57,6 +57,11 @@
 | R-13 | n8n + Chatwoot + motor en Railway consumen recursos | Medio | Diferir Chatwoot; medir antes de añadir |
 | R-14 | Narrativa de visa sin tracción | Alto (visa) | Llevar a 321 como cliente cero con métricas reales y cartas de clientes |
 | R-16 | **Cobro:** no está confirmado que Stripe admita comercios ecuatorianos; Payphone parece solo cobros únicos | Medio | Primeros 5 clientes por transferencia + factura SRI; Kushki o estructura en EE. UU. después del primer ingreso (`11` §4) |
+| R-17 | **Puerta de Meta:** sin App Review/Live, solo cuentas con rol en la app (administradores, desarrolladores, probadores) pueden conectarse. Sirve para 321 y los primeros fundadores, **no para escalar** (⚠️ límite de probadores sin verificar) | **Alto** | Compuerta en `13`: antes de superar el límite de probadores o del lanzamiento público, **App Review + verificación de empresa aprobadas** (E12); empezar el trámite en la Fase B, no al final |
+| R-18 | **WhatsApp** (asistente del dueño) requiere WhatsApp Business Platform: verificación y costo por conversación (⚠️) | Medio | Fase B; el asistente funciona primero en el chat web |
+| R-19 | **Costo del video de IA** puede romper el margen (⚠️ precio por segundo) | Alto | Reels con fotos (ffmpeg) como base; clips de IA limitados por plan y en packs; verificar precios antes de prometer |
+| R-20 | **Ad Library comercial** puede no estar disponible por API oficial para LATAM | Medio | Modo asistido con capturas + visión (`08` §4) |
+| R-21 | **Business Discovery** a escala: límites de llamadas compartidos con un solo token de AiUDA | Medio | Caché, cuotas por prospecto, plan B con datos pegados (`12` §3) |
 | R-15 | Competidores (SaleADS) y creadores que se arman su propio sistema | Medio | Diferenciar por completitud, control, seguridad y simplicidad (`02`) |
 
 ## D. Qué debe quedar resuelto antes de empezar a construir

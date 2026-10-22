@@ -51,6 +51,7 @@ Fuentes leídas (solo lectura): `bcujano/crm-321` (Next.js 16, 659 archivos) y `
 Todas con `org_id` + `marca_id` + RLS + `CHECK` de estados (la auditoría: «no hay CHECK de estados en la base de datos»).
 
 ## D. postpro-321 · Motor (Python/FastAPI, `motor/`)
+> **Nota de la prueba ácida:** en la etapa gratuita **no hay Railway ni Python**. Todo lo que dice «PORTAR» aquí se **porta a TypeScript** (la lógica, las skills y los prompts son la referencia; el lenguaje cambia). La generación larga se hace con trabajos asíncronos (`09` §3).
 | Archivo (líneas) | Qué hace | Trato | Cambios obligatorios |
 |---|---|---|---|
 | `motor.py` (341) | Ciclo `procesar()`: expandir reglas, lanzamientos, tomar piezas, generar, estados | PORTAR | `org_id`/`marca_id`; cola con `SKIP LOCKED` (no `threading.Lock` global: dos réplicas se pisarían); zona horaria por organización |
@@ -66,6 +67,7 @@ Todas con `org_id` + `marca_id` + RLS + `CHECK` de estados (la auditoría: «no 
 | `main.py`, `ai_generator.py`, `pdf_generator.py`, `image_generator.py`, `story_generator.py`, `carousel_generator.py`, `tts_generator.py`, `video_generator.py`, `templates/`, `static/`, `video/` (Remotion), `legacy/bot-python-polling/`, `ref_page_*.png`, `*.bat` | Generador antiguo, sin autenticación y sin uso | DESCARTAR | No se copia nada |
 
 ## E. postpro-321 · Workflows de n8n (`n8n/workflows/`)
+> **Nota de la prueba ácida:** sin n8n en la etapa gratuita. Estos workflows son **referencia de lógica**; se reemplazan por `pg_cron` + endpoints y código propio. «PORTAR/ADAPTAR» significa reescribir esa lógica en TypeScript, no desplegar n8n.
 | Workflow (nodos) | Trato | Notas |
 |---|---|---|
 | `321-contenido-ia-motor` (3), `321-marketing-ia-director` (6), `321-post-pro-publicar-programadas` (2), `321-inmo-alertas-de-error` (3) | PORTAR como **plantillas por organización** o reemplazar por cola propia | Secreto del publicador en la URL → header; error workflow obligatorio |
