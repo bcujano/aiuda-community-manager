@@ -43,6 +43,7 @@ Regla: las que empiezan por `NEXT_PUBLIC_` llegan al navegador (solo URLs y clav
 | `CHATWOOT_BASE_URL` · `CHATWOOT_API_TOKEN` · `CHATWOOT_ACCOUNT_ID` · `CHATWOOT_WEBHOOK_SECRET` | AiUDA Inbox: conversaciones y agentes humanos en Chatwoot |
 
 ## Cobro y correo
+> **En pausa** (`plan/11` §4): los primeros clientes pagan por transferencia + factura SRI; no hay pasarela hasta el primer ingreso.
 `STRIPE_SECRET_KEY` · `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` · `STRIPE_WEBHOOK_SECRET` · `STRIPE_PRICE_STARTER` · `STRIPE_PRICE_PRO` · `STRIPE_PRICE_AGENCY` · `RESEND_API_KEY` · `EMAIL_FROM`.
 
 ## Operación

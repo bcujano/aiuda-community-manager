@@ -27,7 +27,7 @@
 | D-2 | Proveedor de imagen/video **por cliente** (R-1) | Gemini (imagen) → OpenAI (imagen); video con Veo; Higgsfield solo para la cuenta de 321 | Sí, para E4 video |
 | D-3 | Avatar/UGC por marca | Solo con consentimiento escrito del titular de la imagen; fase B; el avatar de Byron solo para 321 | No |
 | D-4 | Planes de pago de infraestructura | **Decidido por Byron: nada Pro hasta generar dinero.** Riesgo asumido: Vercel Hobby es no comercial; se mitiga con portabilidad y copias (`09` §4). Al **primer ingreso** se paga Vercel Pro y, con datos reales de clientes, Supabase Pro | No |
-| D-5 | Precios 49/149/399 + Ads | Validar con costo real por pieza (E1/E4) y con SaleADS ($69/$129 y 1/3 negocios); decidir tras la Fase A | No |
+| D-5 | Precios y comercialización | **Propuesta 39 / 89 / 229 + programa fundador US$59** (`11`); validar con cotizaciones, 10 entrevistas y costo real por pieza | No |
 | D-6 | Composición de piezas: Pillow (Python) vs vectorial TS | **Vectorial TS como estándar** (SVG editable, reglas de diseño, 10 estilos); Pillow solo mientras 321 migra | No |
 | D-7 | Inbox: n8n vs código propio; Chatwoot | **Núcleo propio** (webhook→clasificar→responder→escalar, con pruebas); n8n para alertas y seguimientos; **Chatwoot diferido** a Fase B/C | No |
 | D-8 | Dónde corre la generación | **Sin servidor propio en la etapa gratuita:** trabajos asíncronos + `pg_cron` (`09` §3); Railway solo si hace falta | No |
@@ -56,6 +56,7 @@
 | R-12 | Imagen de personas/avatares y leyes de IA | Medio | Consentimiento, etiquetas «hecho con IA», política de contenido |
 | R-13 | n8n + Chatwoot + motor en Railway consumen recursos | Medio | Diferir Chatwoot; medir antes de añadir |
 | R-14 | Narrativa de visa sin tracción | Alto (visa) | Llevar a 321 como cliente cero con métricas reales y cartas de clientes |
+| R-16 | **Cobro:** no está confirmado que Stripe admita comercios ecuatorianos; Payphone parece solo cobros únicos | Medio | Primeros 5 clientes por transferencia + factura SRI; Kushki o estructura en EE. UU. después del primer ingreso (`11` §4) |
 | R-15 | Competidores (SaleADS) y creadores que se arman su propio sistema | Medio | Diferenciar por completitud, control, seguridad y simplicidad (`02`) |
 
 ## D. Qué debe quedar resuelto antes de empezar a construir

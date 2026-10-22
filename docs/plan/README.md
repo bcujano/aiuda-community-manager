@@ -14,6 +14,7 @@
 | 07 | [`07-superar-saleads.md`](07-superar-saleads.md) | Cada promesa de SaleADS → qué cumplimos → cómo la superamos; promesas públicas de AiUDA |
 | 08 | [`08-redes-y-fuentes.md`](08-redes-y-fuentes.md) | Instagram, Facebook, TikTok y YouTube con sus anuncios, Ad Library: acceso real, modo directo/asistido |
 | 09 | [`09-gratis-hasta-5-clientes.md`](09-gratis-hasta-5-clientes.md) | Plan de costo cero hasta lanzar y llegar a 5 clientes; gatillos de pago |
+| 11 | [`11-precios-y-comercializacion.md`](11-precios-y-comercializacion.md) | Escalera de precios, programa fundador, cobro en Ecuador y métodos de venta |
 | 10 | [`10-mejoras-sobre-lo-existente.md`](10-mejoras-sobre-lo-existente.md) | Qué se mejora de cada módulo que se lleva; biblioteca de skills |
 
 ## Reglas de esta planificación
