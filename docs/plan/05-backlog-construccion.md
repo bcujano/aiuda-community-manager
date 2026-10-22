@@ -15,9 +15,9 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 ## Fases
 | Fase | Épicas | Resultado |
 |---|---|---|
-| **A · «321 lo usa»** | E0, E1, E2 (básico), E3, E4 (básico), E5 (IG/FB) | Plan del mes → piezas → aprobación → publicación en Instagram/Facebook de 321 |
+| **A · «321 lo usa»** | E0, E1, E2 (básico), E3, E4 (básico), E5 (IG/FB + Discord/Telegram + modo asistido en el resto) | Plan del mes → piezas → aprobación → publicación en Instagram/Facebook de 321 |
 | **B · Beta** | E6, E7 (Meta), E8, E9, E10 | Bandeja, anuncios con topes, métricas, asistente por chat/WhatsApp, cobro |
-| **C · Lanzamiento** | E11, E12, E13, E14, TikTok (E5/E7) | Agencias, revisión de Meta aprobada, landing con diseño, operación estable |
+| **C · Lanzamiento** | E11, E13, E14, **E12 (revisiones de Meta/TikTok/Google/LinkedIn/YouTube/Pinterest cuando el sistema esté sólido)**, TikTok (E5/E7) | Agencias, revisión de Meta aprobada, landing con diseño, operación estable |
 | **D · Ampliación** | Google Ads, LinkedIn, YouTube Shorts, E15 | Más redes y extras |
 
 ---
@@ -45,13 +45,13 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 
 ## E4 · AiUDA Studio: redacción, skills, diseño, imagen y video (L)
 - **Portar:** `redaccion.py`, `skills/*.md` (9, por organización y editables), `lib/vectorial/*` + `api/marketing/vectorial` (plantillas `oferta`, `titular`, `cifra`, `lista`; formatos 1080² / 1080×1350 / 1080×1920; 10 estilos; texto a trazados), `piezas.py` (Pillow) solo hasta migrar (D-6).
-- **Nuevo:** biblioteca de skills por categoría (ganchos, guiones, carruseles, historias, adaptar formato, métricas); chat de guiones que usa la voz y transcripciones de la marca; imágenes con cadena Gemini→OpenAI; video según investigación de la fase.
+- **Nuevo:** **biblioteca de ≥100 skills combinadas con el conocimiento del sistema** (`10`); chat de guiones que usa la voz y transcripciones de la marca; imágenes con cadena Gemini→OpenAI; video según investigación de la fase.
 - **Aceptación:** una pieza por tipo (post, carrusel, reel, story) generada y revisada: 0 frases prohibidas, 0 cifras sin fuente, límites de plataforma cumplidos; costo real por pieza registrado.
 
 ## E5 · Publicación (M–L)
 - **Reescribir** el publicador (no portar tal cual): `publicaciones` con una fila por plataforma, `tomar_publicaciones()` (SKIP LOCKED + lease), contenedor→`FINISHED`→`media_publish`, reanudar con `creation_id`, token con aviso de vencimiento, secreto en header, error visible con reintento manual. Referencia: `api/post-pro/publish|schedule`, `n8n/321-post-pro-publicar-programadas`.
-- **Orden de redes:** Instagram (publicar, carrusel, reel, story) y Facebook → Threads → TikTok (Direct Post, auditoría) → LinkedIn → YouTube Shorts → Pinterest. X, Reddit, Discord, Telegram: fuera de alcance inicial.
-- **Programador:** ver R-3 (Vercel Hobby solo cron diario): usar cola propia con `pg_cron`/`pg_net` o un worker en Railway.
+- **Redes (todas, Byron 2026-10-22):** Instagram, Facebook, Threads, TikTok, YouTube Shorts, LinkedIn, Pinterest, X, Reddit, Discord, Telegram, cada una en modo **directo** o **asistido** según acceso (`08`). Orden de directo: Instagram/Facebook → Discord/Telegram (sin revisión) → Threads → TikTok → X (pago por uso) → resto al aprobarse. «Crea una vez, publica en todas»: una idea madre → pieza nativa por red (`08` §7).
+- **Programador:** `pg_cron` + `pg_net` de Supabase (gratis) llamando a un endpoint con `CRON_SECRET` en header (`09`); sin Railway en esta etapa.
 - **Aceptación:** simulando fallo a mitad de camino, **ninguna publicación duplicada**; pieza colgada se recupera sola; publicar en IG y FB falla en una y se reintenta solo esa.
 
 ## E6 · AiUDA Inbox (L)
@@ -65,10 +65,11 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 - **Luego:** TikTok Ads y Google Ads con el mismo contrato (adaptadores).
 - **Aceptación:** campaña creada siempre en pausa; activar exige confirmación con cifras; ninguna regla sube gasto; auditoría completa.
 
-## E8 · AiUDA Insights (M–L)
+## E8 · AiUDA Insights + inteligencia competitiva (L)
 - **Portar:** `api/marketing/resultados` + `lib/marketing-resultados.ts` + `resultados/page.tsx` + `reports/post-pro`.
 - **Alcance:** nivel **cuenta** y nivel **pieza por pieza** (alcance, interacción, guardados, compartidos, leads, ventas cuando haya dato); patrones por gancho/tema/formato/hora **con tamaño mínimo de muestra**; competencia (métricas públicas, patrones, ideas adaptadas, con origen); lecturas automáticas; **atribución** a leads/ventas solo con seguimiento real.
-- **Aceptación:** ninguna cifra sin origen; sin muestra suficiente → «sin dato suficiente».
+- **Ad Library y competencia (`08` §5):** validar con consulta de solo lectura qué devuelve la fuente oficial para Ecuador/LATAM; detector de ángulos, ofertas, formatos y duración de anuncios de la competencia; **ideas adaptadas** (sin copiar); cruce con métricas propias → «qué orgánico impulsar»; patrones públicos de competidores (Business Discovery).
+- **Aceptación:** ninguna cifra sin origen; sin muestra suficiente → «sin dato suficiente»; el informe de competencia cita la fuente de cada hallazgo.
 
 ## E9 · AiUDA Asistente: chat + WhatsApp texto/audio (M)
 - **Base:** `api/agente/whatsapp` (lista blanca, topes, historial), `lib/agente/*` (gerentes, herramientas, turno).
@@ -83,7 +84,7 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 - Selector de marca, vista consolidada, permisos por marca, **enlace firmado** para que el cliente final apruebe sin cuenta, marca blanca (logo y dominio).
 - **Aceptación:** un aprobador externo solo ve y aprueba lo de su marca.
 
-## E12 · Cumplimiento y revisión de plataformas (M)
+## E12 · Cumplimiento y revisión de plataformas (M) — **después de que el sistema funcione bien** (Byron 2026-10-22)
 - Endpoint de **eliminación de datos** de Meta (solicitud firmada → borrado → código y URL de estado), exportación de datos, registro de consentimientos, DPA, casos de uso y guion del demo para App Review, política de IA/contenido generado, retención de datos.
 - **Aceptación:** demo grabado de conectar→publicar→leer comentarios; solicitud de revisión enviada; borrado verificado.
 
@@ -99,3 +100,6 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 ---
 ## Orden y dependencias
 E0 → E1 → (E2 ∥ E3) → E4 → E5 → [Fase A terminada] → E6 → E7 → E8 → E9 → E10 → [Fase B] → E11 ∥ E12 ∥ E13 ∥ E14 → [Fase C] → TikTok/Google/LinkedIn/E15.
+
+## E16 · Promesas y calidad de producto (S, transversal)
+Panel de operación con las 10 promesas de `07` §3 medidas (borrador de campaña < 60 s, alta < 10 min, primera respuesta < 15 min, etc.); revisión mensual; biblioteca de estrategias ≥50 (`07` §5).

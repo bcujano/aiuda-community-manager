@@ -13,6 +13,10 @@
 | C-8 | Repos ajenos solo lectura | 2026-10-21 |
 | C-9 | El diseño (`design.md`) es estético; la funcionalidad manda | 2026-10-22 |
 | C-10 | La construcción se hace en otra sesión, cuando la planificación esté completa | 2026-10-22 |
+| C-11 | **Todas las redes del carrusel** (11), directo o asistido; **Ad Library** incluido | 2026-10-22 |
+| C-12 | La revisión de Meta **no es inmediata**: primero el sistema funcionando bien | 2026-10-22 |
+| C-13 | **Infraestructura gratuita hasta lanzar y llegar a ≥5 clientes** (con los matices de `09`) | 2026-10-22 |
+| C-14 | Skills ≥100 combinadas con el conocimiento del sistema (`10`) | 2026-10-22 |
 
 ## B. Decisiones abiertas (con recomendación)
 | # | Tema | Recomendación | ¿Bloquea? |
@@ -20,24 +24,25 @@
 | D-1 | Dominio propio y **correo de contacto operativo** (hoy `contacto@emprendimientum.com` no recibe: hosting suspendido) | Antes de enviar a revisión de Meta: correo que reciba (reactivar hosting, o mover DNS y reenviar) y dominio verificable | **Sí, para App Review** (no para Fase A) |
 | D-2 | Proveedor de imagen/video **por cliente** (R-1) | Gemini (imagen) → OpenAI (imagen); video con Veo; Higgsfield solo para la cuenta de 321 | Sí, para E4 video |
 | D-3 | Avatar/UGC por marca | Solo con consentimiento escrito del titular de la imagen; fase B; el avatar de Byron solo para 321 | No |
-| D-4 | Planes de pago de infraestructura | **Vercel Pro y Supabase Pro antes del primer cliente de pago** (R-3, R-4) | Sí, para cobrar |
+| D-4 | Planes de pago de infraestructura | **Gratis hasta el lanzamiento.** Vercel Pro (US$20/mes) **desde el primer cobro o uso comercial real**; Supabase Pro desde el primer cliente real (`09` §5) | Sí, para cobrar |
 | D-5 | Precios 49/149/399 + Ads | Validar con costo real por pieza (E1/E4) y con SaleADS ($69/$129 y 1/3 negocios); decidir tras la Fase A | No |
 | D-6 | Composición de piezas: Pillow (Python) vs vectorial TS | **Vectorial TS como estándar** (SVG editable, reglas de diseño, 10 estilos); Pillow solo mientras 321 migra | No |
 | D-7 | Inbox: n8n vs código propio; Chatwoot | **Núcleo propio** (webhook→clasificar→responder→escalar, con pruebas); n8n para alertas y seguimientos; **Chatwoot diferido** a Fase B/C | No |
-| D-8 | Dónde corre el worker de generación | Railway (motor Python adaptado) con cola; confirmar costo mensual | No |
+| D-8 | Dónde corre la generación | **Sin servidor propio en la etapa gratuita:** trabajos asíncronos + `pg_cron` (`09` §3); Railway solo si hace falta | No |
 | D-9 | Router de IA duplicado TS+Python | Dos implementaciones con **contrato y pruebas compartidos** (`evals/`), para no tener un punto único de falla | No |
 | D-10 | Idiomas | Español primero; inglés/portugués en lanzamiento | No |
 | D-11 | Segmentos | Inmobiliario primero; plantillas para restaurantes/clínicas/retail; **edición creadores** (marca personal) después | No |
 | D-12 | Claves propias del cliente (BYO) | Solo agencias, fase C | No |
-| D-13 | Redes y orden | Meta → TikTok → LinkedIn → YouTube Shorts → Pinterest; Google Ads después de Meta/TikTok; X/Reddit/Discord/Telegram fuera | No |
-| D-14 | Lectura del Ad Library de competidores | Solo por fuente oficial y datos públicos; verificar alcance/región antes de prometerla | No |
+| D-13 | Redes y orden | **Todas** (`08`): directo en Instagram/Facebook/Discord/Telegram; el resto asistido hasta aprobarse; anuncios Meta → TikTok → Google | No |
+| D-14 | Ad Library de competidores | Validar con una consulta de solo lectura qué devuelve para Ecuador/LATAM antes de prometerla (`08` §5) | No |
+| D-15 | Diseño | Tu código de diseño manda; opciones de Refero en `04` §5 (receta: Notion + Ramp + Intercom + Raycast) | **Sí** (para E13) |
 
 ## C. Riesgos
 | # | Riesgo | Impacto | Mitigación |
 |---|---|---|---|
 | R-1 | **Higgsfield con créditos del plan personal de Byron no es un proveedor multicliente** y puede violar términos si se revende | Alto | Proveedores por API (Gemini/OpenAI/Veo); Higgsfield solo cuenta de 321; revisar términos |
 | R-2 | **Revisión de Meta** (App Review + Business Verification): semanas; `*.vercel.app` **no se puede verificar como dominio propio**; el correo de contacto no funciona | Alto | Dominio propio, correo operativo, demo grabado (E12); empezar el trámite al terminar Fase A |
-| R-3 | **Vercel Hobby es para uso no comercial** y solo permite cron **diario**; el publicador necesita cada pocos minutos | Alto | Plan Pro antes de cobrar; cola con `pg_cron`/`pg_net` o worker en Railway |
+| R-3 | **Vercel Hobby es para uso no comercial** (oficial); funciones de 10–60 s | Alto | Pro desde el primer cobro; programador con `pg_cron`+`pg_net` (gratis); trabajos asíncronos |
 | R-4 | **Supabase gratuito:** se pausa por inactividad, sin copias de seguridad, ~500 MB, Disk IO limitado (crm-321 ya se cayó el 27-sep) | Alto | Plan Pro antes de clientes reales; lotes con pausa; retención de `ia_llamadas`; Storage con límites |
 | R-5 | Caída de un proveedor de IA | Medio | Cadena de tres + circuito + sondas + cola |
 | R-6 | **Políticas de anuncios**: categoría especial de **vivienda** (segmentación restringida), claims de resultados | Alto (inmobiliario) | Validador de políticas, `segmentacion-meta` ajustada, nunca prometer resultados (a diferencia de la competencia) |

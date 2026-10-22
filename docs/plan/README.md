@@ -11,6 +11,10 @@
 | 04 | [`04-diseno.md`](04-diseno.md) | Cómo entra `design.md` sin limitar la funcionalidad y qué falta recibir |
 | 05 | [`05-backlog-construccion.md`](05-backlog-construccion.md) | Épicas con alcance, orígenes a portar, tablas, criterios de aceptación y orden |
 | 06 | [`06-decisiones-y-riesgos.md`](06-decisiones-y-riesgos.md) | Decisiones cerradas, abiertas y riesgos que bloquean o encarecen |
+| 07 | [`07-superar-saleads.md`](07-superar-saleads.md) | Cada promesa de SaleADS → qué cumplimos → cómo la superamos; promesas públicas de AiUDA |
+| 08 | [`08-redes-y-fuentes.md`](08-redes-y-fuentes.md) | Las 11 redes, anuncios y Ad Library: acceso real, modo directo/asistido |
+| 09 | [`09-gratis-hasta-5-clientes.md`](09-gratis-hasta-5-clientes.md) | Plan de costo cero hasta lanzar y llegar a 5 clientes; gatillos de pago |
+| 10 | [`10-mejoras-sobre-lo-existente.md`](10-mejoras-sobre-lo-existente.md) | Qué se mejora de cada módulo que se lleva; biblioteca de skills |
 
 ## Reglas de esta planificación
 1. **No se repite nada de lo que ya funciona en crm-321/postpro-321:** se porta, se parametriza por cliente y se corrigen los defectos de su auditoría. Nada de reescribir por gusto.

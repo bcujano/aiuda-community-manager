@@ -56,6 +56,8 @@ Testimonios de 3 personas (moda, restaurante, consultora) con métricas «18,26x
 - [saleads.ai/es](https://saleads.ai/es)
 - [SaleADS en Capterra](https://www.capterra.ca/software/1094802/SaleADS-ai) · [Product Hunt](https://www.producthunt.com/products/saleads-ai) · [G2](https://www.g2.com/sellers/saleads)
 
+> Plan para superar a SaleADS: [`07-superar-saleads.md`](07-superar-saleads.md).
+
 ## 10. Referencia adicional: «JARVIS de contenido 2.0» (carrusel de @ramiro.cubria, PDF aportado por Byron)
 > No es un competidor directo: es un **sistema personal para creadores** que cada quien se arma con Claude Code/Codex + Obsidian + voz local. Importa porque **fija lo que los creadores esperarán** de una herramienta, y porque muestra que un creador puede «armarlo él mismo». Se usa como referencia de producto, no se copia.
 
@@ -68,7 +70,7 @@ Testimonios de 3 personas (moda, restaurante, consultora) con métricas «18,26x
 | Vault de +100 skills de contenido y chat de guiones que **lee tus transcripciones y aprende tu forma de hablar** | Biblioteca de skills por categoría (ganchos, guiones, carruseles, historias, adaptar formato, métricas) **editable por organización** + **«aprender mi voz»** desde sus publicaciones y transcripciones subidas | E2, E4 |
 | Meta Ads desde un chat: analiza el **Ad Library** de competidores (ángulos, ofertas, creativos), lo cruza con tus métricas, recomienda **qué contenido orgánico impulsar** y arma la campaña por chat con objetivo y presupuesto | Ads conversacional con aprobación; «impulsar lo orgánico que ya funciona» (ya existe `ads_boost_ig_post` en el MCP de Facebook de esta sesión y `AdsBoom` en crm-321); lectura del Ad Library **solo si la fuente oficial lo permite** (verificar alcance/región) | E7, E8 |
 | Espiar competencia: mejores ganchos, temas, formatos y patrones → ideas adaptadas al negocio («no copias, entiendes») | Ya está en el Director de crm-321 (Business Discovery, 16 cuentas); se amplía a **patrones de gancho/tema/formato** calculados sobre datos públicos, citando origen | E3, E8 |
-| «Crea una vez, publica en todos lados»: IG, Facebook, YouTube, Threads, LinkedIn, X, TikTok, Pinterest, Telegram, Reddit, Discord | **Reutilizar una idea en cada formato nativo.** Orden de integración: Instagram/Facebook/Threads (Meta) → TikTok → LinkedIn → YouTube Shorts → Pinterest. X, Reddit, Discord y Telegram: fuera del alcance inicial (D-13) | E5 |
+| «Crea una vez, publica en todos lados»: IG, Facebook, YouTube, Threads, LinkedIn, X, TikTok, Pinterest, Telegram, Reddit, Discord | **Reutilizar una idea en cada formato nativo.** **Las 11 redes** en modo directo o asistido (`08`); X, Reddit, Discord y Telegram **sí entran** (decisión de Byron) | E5 |
 | Control por WhatsApp: «¿qué contenido me trajo más ventas?», «escríbeme un guion», «¿qué reel debería impulsar?», «crea una campaña con este presupuesto» | Mismas preguntas como **plantillas del Asistente**; las acciones de gasto exigen confirmación y topes | E9 |
 
 **Lectura estratégica:** hay un segmento de **creadores/marca personal** (coaches, infoproductos, asesores) que hoy se arma esto a mano. AiUDA puede ofrecerles lo mismo **sin instalar nada**, con seguridad y multi-cuenta. Se anota como segunda edición del producto (`06`, D-11), sin desviar el foco inicial (pymes e inmobiliarias).
