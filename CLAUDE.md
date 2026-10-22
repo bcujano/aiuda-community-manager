@@ -2,6 +2,16 @@
 
 > Léelo todo antes de tocar código. El detalle está en `docs/`. Si algo choca, manda `docs/PLAN-MAESTRO.md`.
 
+## Reglas de trabajo de Byron (mandan sobre todo lo demás; no se olvidan nunca)
+1. **Yo soy su herramienta, no al revés.** Byron decide; yo ejecuto, investigo y propongo. No le delego trabajo que puedo hacer yo.
+2. **Todo visible desde el momento 0:** lo que se construye queda desplegado en Vercel y todo está en GitHub (`main`). Cada avance se sube de inmediato.
+3. **Nada incompleto ni suelto:** no se dejan procesos a medias. Lo que no se termina se anota como **pendiente** (en `docs/plan/13` §13) con su motivo.
+4. **Todo se documenta; nada queda al azar.** Lo que no sé lo investigo, lo aprendo, lo domino y lo guardo en `docs/knowledge/` para que el sistema lo tenga siempre.
+5. **Todo se muestra en el chat.** Byron no abre archivos `.md` ni el bloc de notas: lo que haya que leer, copiar o pegar se le pone aquí, completo y listo para usar.
+6. **Sin ramas ni PRs.** Solo `main`. Nada de procedimientos de git que confundan.
+7. **Seguridad siempre:** todas las precauciones para resguardar lo construido y a los clientes (secretos, RLS, auditoría, topes, vista previa, copias).
+8. **Avanzar al máximo en automático**, sin pedir permiso por cada paso; preguntar solo lo que solo Byron puede decidir o dar.
+
 ## Qué es
 SaaS multi-cliente: community manager + anuncios + bandeja de comentarios/DMs, 100 % automático.
 Marca madre **AiUDA**; cada especialidad tiene nombre propio (ver `docs/MARCA.md`).
