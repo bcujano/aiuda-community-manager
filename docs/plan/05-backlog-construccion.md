@@ -22,9 +22,9 @@ Tamaños relativos: **S** (días), **M** (1–2 semanas), **L** (2–4 semanas).
 
 ---
 ## E0 · Fundación y calidad (S–M)
-- **Hecho:** Next.js, login, empresa/negocio, ficha v1, conexión Instagram (sin probar), cifrado AES-GCM, SQL 001–002.
-- **Falta:** CI (typecheck, build, pruebas, **suite SQL de RLS**), Sentry, i18n (es primero), tokens de diseño, infraestructura `<Ayuda>`/`<Lecturas>`/`fuente-dato` portada de `lib/glosario.ts`, `lecturas*.ts`, `fuente-dato.ts`, RBAC en servidor (roles `owner/editor/aprobador/lector`), invitaciones de miembros.
-- **Aceptación:** 2 organizaciones aisladas en todas las tablas; roles probados (lector no escribe, editor no aprueba); build en CI.
+- **Hecho:** Next.js, login, empresa/negocio, ficha v1, conexión Instagram (sin probar), cifrado AES-GCM, SQL 001–003.
+- **Falta:** **que Byron pegue `sql/003`** (integridad entre organizaciones, YouTube, planes, límite de organizaciones); CI (typecheck, build, pruebas, **suite SQL de seguridad por fila con ataques entre organizaciones**, ya probada a mano), Sentry (solo si es gratis), i18n (es primero), tokens de diseño, infraestructura `<Ayuda>`/`<Lecturas>`/`fuente-dato` portada de `lib/glosario.ts`, `lecturas*.ts`, `fuente-dato.ts`, RBAC en servidor (roles `owner/editor/aprobador/lector`), invitaciones de miembros.
+- **Aceptación:** 2 organizaciones aisladas en todas las tablas **y sin referencias cruzadas** (una pieza/conexión/publicación nunca apunta a otra organización); roles probados (lector no escribe, editor no aprueba); build en CI.
 
 ## E1 · Motor de IA (M)
 - **Alcance:** `03-motor-ia.md` completo: router **en TypeScript** con contrato portable, `ia_modelos`, `ia_precios`, `ia_llamadas`, presupuestos, circuito, sondas, validadores (esquema, frases prohibidas, cifras con fuente, límites), evaluaciones.
