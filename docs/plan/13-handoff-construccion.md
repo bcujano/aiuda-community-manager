@@ -102,8 +102,10 @@ NEXT_PUBLIC_APP_URL, APP_ENCRYPTION_KEY, CRON_SECRET, ANTHROPIC_API_KEY, OPENAI_
 Faltan: GEMINI_API_KEY e INSTAGRAM_APP_ID / INSTAGRAM_APP_SECRET (pídeselos a Byron cuando los necesites; nunca en el chat).
 
 PRIMEROS PASOS
-1. Revisa git status y lee sql/001_esquema_aiuda_cm.sql (esquema aiuda_cm). Pregunta a Byron si ya pegó los tres en Supabase y si /api/salud muestra
-   config en true. No pruebes contra Supabase real sin esa confirmación.
+1. Revisa git status y lee sql/001_esquema_aiuda_cm.sql. IMPORTANTE: el proyecto de Supabase «aiuda-empresas» ya contiene
+   OTRA app de Byron en el esquema public (leads, citas, organizaciones, actividad…). NUNCA toques public: AiUDA CM vive
+   en el esquema aiuda_cm. Pregunta a Byron si ya pegó el 001, si agregó aiuda_cm a «Exposed schemas» y si /api/salud
+   muestra config en true. No pruebes contra Supabase real sin esa confirmación.
 2. E0: CI (tipos, build, pruebas), suite de seguridad por fila con ataques entre organizaciones, RBAC en servidor,
    <Ayuda>/<Lecturas>/fuente-dato, tokens de diseño en tres capas y registro de temas (tema "base" por defecto;
    etiqueta git diseno-base-v0 antes de aplicar nada). Refero se aplica solo tras la aprobación de Byron.
