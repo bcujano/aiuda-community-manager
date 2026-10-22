@@ -148,3 +148,11 @@ REGLAS DURAS
 | Psicología y regalo de valor (`12`) | ✅ |
 | Prueba ácida (`14`) | ✅ 14 hallazgos corregidos o con compuerta |
 | **Visto bueno final de Byron** | ⏳ |
+
+## 13. Estado de la construcción (2026-10-22, sesión de construcción 1)
+**Hecho y probado en local (sin Supabase ni proveedores reales):** CI (`.github/workflows/ci.yml`); suite SQL de seguridad por fila con ataques entre organizaciones (`npm run test:sql`, verificada rompiéndola a propósito); RBAC en servidor; tokens de diseño en 3 capas y registro de temas (`base`); `<Lecturas>` y `<FuenteDato>`; router de IA (cadena, circuito, ledger, validadores, tope) con 13 pruebas simuladas incluida la caída de Anthropic y OpenAI → Gemini; publicador idempotente con pruebas de caída a mitad (5); rebanada vertical en `/app/negocio/[id]/plan`.
+**Escrito pero NO probado contra servicios reales:** adaptadores de Anthropic/OpenAI/Gemini (faltan claves en este entorno), Supabase real, Storage, Instagram (falta `INSTAGRAM_APP_ID/SECRET`), cron.
+**Migraciones pendientes de pegar (Byron):** `sql/002_ia_y_planes.sql`, `sql/003_storage_y_publicador.sql`.
+**Pendiente de E0:** etiqueta `diseno-base-v0` creada en local sobre `c6c8e7c` pero el servidor Git de la sesión no deja subir etiquetas (subirla desde otro equipo); Sentry; invitaciones de miembros; i18n; capturas Refero.
+**Falta de la Fase A:** evaluación ≥30 casos; carrusel/reel/story; Facebook; ≥80 % de ficha con rastreo; regalo «Semana 1»; panel de costo por pieza; plan de más de 1 pieza; programación por fecha; `pg_cron` + `pg_net` (SQL del cron).
+**Verificaciones técnicas pendientes (§8):** modelos y precios de OpenAI/Gemini, versión de Graph, límites de Hobby/Supabase.

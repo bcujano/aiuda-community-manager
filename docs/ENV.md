@@ -56,3 +56,7 @@ Regla: las que empiezan por `NEXT_PUBLIC_` llegan al navegador (solo URLs y clav
 - Un secreto por variable y por entorno; rotar si alguna vez se expone.
 - Supabase gratuito: usar la clave `service_role` solo en rutas de servidor.
 - Los valores nunca se escriben en el código ni en `docs/`.
+
+## Motor de IA (opcionales; valores por defecto en `src/lib/ia/config.ts`)
+`IA_TOPE_MENSUAL_USD` (por defecto 50) · `IA_MODELO_<PROVEEDOR>_<NIVEL>` (p. ej. `IA_MODELO_OPENAI_ESTANDAR`) para cambiar un modelo sin tocar código. ⚠️ Los modelos por defecto de OpenAI y Gemini y todos los precios de `config.ts` están **sin verificar**: confirmarlos contra los catálogos vigentes antes de depender del costo mostrado.
+`NEXT_PUBLIC_TEMA` (por defecto `base`): tema visual; volver atrás = cambiar esta variable.
