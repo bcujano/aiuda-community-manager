@@ -10,6 +10,7 @@ Fuentes consolidadas el 2026-10-21:
 | `instagram-api-rules.md` | Graph API: auth, tokens, permisos, límites, errores, publicación, insights |
 | `agent-safety-rules.md` | Contrato de confirmación, puertas de escritura, inyección, taint gate |
 | `repos-reference.md` | Qué hace cada repo y qué patrón reutilizar |
+| `aprendizajes-construccion.md` | Lo descubierto al construir (motor vectorial, pruebas SQL, idempotencia de publicación, zonas horarias, límites del entorno) |
 | `agent-safety-saas-rules.md` | Reglas SaaS: topes de gasto, campañas en pausa, mínimo privilegio, kill switch, privacidad |
 | `meta-publicacion-idempotencia-y-ads.md` | Lecciones de crm-321: idempotencia por plataforma, lease, notas de anuncios Graph v22 |
 | `crm-321-mapa-de-migracion.md` | Qué copiar del módulo Marketing de crm-321 y adónde va en AiUDA |

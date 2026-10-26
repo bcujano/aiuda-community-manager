@@ -4,6 +4,7 @@ import { supabaseServidor } from '@/lib/supabase/servidor'
 import { rolEn, puede } from '@/lib/rbac'
 import { EsquemaPlan } from '@/lib/contenido'
 import { completitud, type Perfil } from '@/lib/ficha'
+import { formatoLocal } from '@/lib/zona'
 import { Ayuda } from '@/components/Ayuda'
 import { Lecturas } from '@/components/Lecturas'
 import { FuenteDato } from '@/components/FuenteDato'
@@ -23,11 +24,13 @@ export default async function Plan({ params, searchParams }: { params: Promise<{
   const { data: marca } = await sb.from('marcas').select('id, org_id, nombre, perfil').eq('id', id).maybeSingle()
   if (!marca) notFound()
   const rol = await rolEn(marca.org_id)
+  const { data: orgz } = await sb.from('organizaciones').select('zona_horaria').eq('id', marca.org_id).maybeSingle()
+  const tz = orgz?.zona_horaria ?? 'America/Guayaquil'
   const av = completitud((marca.perfil ?? {}) as Perfil)
   const { data: planes } = await sb.from('planes_mes').select('id, estado, contenido, error, mes').eq('marca_id', id).order('creado_en', { ascending: false }).limit(1)
   const plan = planes?.[0]
   const { data: piezas } = await sb.from('piezas').select('id, estado, tipo, caption, media_urls, costo_usd, parametros, generacion').eq('marca_id', id).order('creada_en', { ascending: false }).limit(20)
-  const { data: pubs } = await sb.from('publicaciones').select('id, pieza_id, plataforma, estado, error, id_externo, publicada_en').in('pieza_id', (piezas ?? []).map((p) => p.id).concat('00000000-0000-0000-0000-000000000000'))
+  const { data: pubs } = await sb.from('publicaciones').select('id, pieza_id, plataforma, estado, error, id_externo, publicada_en, programada_para').in('pieza_id', (piezas ?? []).map((p) => p.id).concat('00000000-0000-0000-0000-000000000000'))
   const parsed = plan?.estado === 'por_aprobar' || plan?.estado === 'aprobado' ? EsquemaPlan.safeParse(plan.contenido) : null
 
   return (
@@ -85,13 +88,14 @@ export default async function Plan({ params, searchParams }: { params: Promise<{
             {p.estado === 'aprobada' && pu.length === 0 && (
               <form action={programarInstagram}>
                 <input type="hidden" name="marca" value={id} /><input type="hidden" name="pieza" value={p.id} />
-                <p className="suave">Se publicará <b>ahora</b> en el Instagram conectado de «{marca.nombre}», como imagen con el texto y los hashtags de arriba.</p>
+                <label className="campo"><span>Cuándo (hora de {tz}) <Ayuda que="El día y la hora en que se publica." origen="Lo eliges tú; vacío = ahora." afecta="El publicador la toma cuando llega esa hora." ejemplo="Martes 9:30" /></span><input type="datetime-local" name="cuando" /></label>
+                <p className="suave">Se publicará en el Instagram conectado de «{marca.nombre}», como imagen con el texto y los hashtags de arriba. Vacío = ahora.</p>
                 <button type="submit" disabled={!puede(rol, 'aprobar')}>Publicar en Instagram</button>
               </form>
             )}
             {pu.map((x) => (
               <div key={x.id} className={x.estado === 'error' ? 'alerta-error' : 'suave'}>
-                Instagram: {x.estado === 'publicada' ? `publicada${x.publicada_en ? ' el ' + new Date(x.publicada_en).toLocaleString('es-EC', { timeZone: 'America/Guayaquil' }) : ''}` : x.estado === 'error' ? x.error : 'en cola'}
+                Instagram: {x.estado === 'publicada' ? `publicada${x.publicada_en ? ' el ' + formatoLocal(x.publicada_en, tz) : ''}` : x.estado === 'error' ? x.error : `en cola para el ${formatoLocal(x.programada_para, tz)} (${tz})`}
                 {x.estado === 'error' && (
                   <form action={reintentarPublicacion} style={{ display: 'inline', marginLeft: 8 }}><input type="hidden" name="marca" value={id} /><input type="hidden" name="pub" value={x.id} /><button className="secundario" type="submit">Reintentar</button></form>
                 )}

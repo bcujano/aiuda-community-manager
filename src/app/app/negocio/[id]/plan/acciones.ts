@@ -8,6 +8,7 @@ import { EsquemaPlan, EsquemaPieza, fichaComoTexto, frasesDeFicha, sistemaPieza,
 import type { Perfil } from '@/lib/ficha'
 import { coloresDeFicha, renderPieza } from '@/lib/vectorial/render'
 import { randomUUID } from 'node:crypto'
+import { localAUtc } from '@/lib/zona'
 
 const ir = (marca: string, k: 'ok' | 'error', msg: string): never => redirect(`/app/negocio/${marca}/plan?${k}=${encodeURIComponent(msg)}`)
 const MENSAJE_IA: Record<string, string> = {
@@ -116,7 +117,10 @@ export async function programarInstagram(fd: FormData) {
   const m = await marcaConFicha(marcaId)
   try { await exigir(m.org_id, 'aprobar') } catch (e) { if (e instanceof SinPermiso) ir(marcaId, 'error', e.message); throw e }
   const db = supabaseAdmin()
-  const { data: org } = await db.from('organizaciones').select('kill_switch').eq('id', m.org_id).single()
+  const { data: org } = await db.from('organizaciones').select('kill_switch, zona_horaria').eq('id', m.org_id).single()
+  const cuando = String(fd.get('cuando') ?? '') ? localAUtc(String(fd.get('cuando')), org?.zona_horaria ?? 'America/Guayaquil') : new Date()
+  if (!cuando) return ir(marcaId, 'error', 'La fecha y hora no son válidas.')
+  if (cuando.getTime() < Date.now() - 60_000) return ir(marcaId, 'error', 'Esa fecha ya pasó. Elige una futura o déjala vacía para publicar ahora.')
   if (org?.kill_switch) return ir(marcaId, 'error', 'La pausa de emergencia está activa.')
   const { data: pz } = await db.from('piezas').select('estado').eq('id', piezaId).eq('org_id', m.org_id).maybeSingle()
   if (pz?.estado !== 'aprobada') return ir(marcaId, 'error', 'Primero aprueba la pieza.')
@@ -124,10 +128,10 @@ export async function programarInstagram(fd: FormData) {
   if (!cx) return ir(marcaId, 'error', 'Conecta primero la cuenta de Instagram de este negocio.')
   const { error } = await db.from('publicaciones').upsert({
     org_id: m.org_id, pieza_id: piezaId, conexion_id: cx.id, plataforma: 'instagram',
-    programada_para: new Date().toISOString(), clave_idempotencia: `${m.org_id}:${piezaId}:instagram`,
+    programada_para: cuando.toISOString(), clave_idempotencia: `${m.org_id}:${piezaId}:instagram`,
   }, { onConflict: 'clave_idempotencia', ignoreDuplicates: true })
   if (error) return ir(marcaId, 'error', 'No pudimos programar la publicación.')
-  ir(marcaId, 'ok', 'Programada. Se publica en el próximo minuto.')
+  ir(marcaId, 'ok', cuando.getTime() <= Date.now() + 60_000 ? 'Programada. Se publica en el próximo minuto.' : 'Programada para el día y hora que elegiste.')
 }
 
 export async function reintentarPublicacion(fd: FormData) {
