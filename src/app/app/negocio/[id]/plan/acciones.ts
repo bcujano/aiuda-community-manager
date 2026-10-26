@@ -4,7 +4,7 @@ import { supabaseServidor } from '@/lib/supabase/servidor'
 import { supabaseAdmin } from '@/lib/supabase/admin'
 import { exigir, SinPermiso } from '@/lib/rbac'
 import { ia } from '@/lib/ia'
-import { EsquemaPlan, EsquemaPieza, fichaComoTexto, frasesDeFicha, sistemaPieza, sistemaPlan, type Plan } from '@/lib/contenido'
+import { EsquemaCarrusel, EsquemaPlan, EsquemaPieza, sistemaCarrusel, fichaComoTexto, frasesDeFicha, sistemaPieza, sistemaPlan, type Plan } from '@/lib/contenido'
 import type { Perfil } from '@/lib/ficha'
 import { coloresDeFicha, renderPieza } from '@/lib/vectorial/render'
 import { randomUUID } from 'node:crypto'
@@ -38,7 +38,7 @@ export async function generarPlan(fd: FormData) {
   const ficha = fichaComoTexto(m.nombre, m.perfil as Perfil)
   const r = await ia.ejecutar<Plan>({
     tarea: 'plan_mes', org_id: m.org_id, marca_id: m.id, esquema: EsquemaPlan, sistema: sistemaPlan,
-    usuario: `<ficha>\n${ficha}\n</ficha>\n\nPropón un plan para este mes con EXACTAMENTE ${n} pieza(s). Varía los temas. Todas deben ser de tipo "post" (por ahora solo se publican imágenes).`,
+    usuario: `<ficha>\n${ficha}\n</ficha>\n\nPropón un plan para este mes con EXACTAMENTE ${n} pieza(s). Varía los temas. Usa solo los tipos "post" (una imagen) y "carrusel" (varias imágenes); alterna ambos.`,
     fuente: ficha, frasesProhibidas: frasesDeFicha(m.perfil as Perfil), maxTokens: 800 + n * 250,
   })
   if (!r.ok) {
@@ -75,25 +75,32 @@ export async function generarPieza(fd: FormData) {
 
   const ficha = fichaComoTexto(m.nombre, m.perfil as Perfil)
   const idea = JSON.stringify(tomada.parametros)
-  const r = await ia.ejecutar({
-    tarea: 'redactar_pieza', org_id: m.org_id, marca_id: m.id, pieza_id: piezaId, esquema: EsquemaPieza, sistema: sistemaPieza,
-    usuario: `<ficha>\n${ficha}\n</ficha>\n\nIdea de la pieza (dato del plan aprobado): ${idea}`,
-    fuente: ficha + '\n' + idea, frasesProhibidas: frasesDeFicha(m.perfil as Perfil), maxTokens: 2000,
-    campoTexto: (s) => `${s.caption} ${s.hashtags.join(' ')} ${s.titular} ${s.subtitulo}`,
-  })
+  const esCarrusel = (tomada.parametros as { tipo?: string })?.tipo === 'carrusel'
+  const comun = { org_id: m.org_id, marca_id: m.id, pieza_id: piezaId, usuario: `<ficha>\n${ficha}\n</ficha>\n\nIdea de la pieza (dato del plan aprobado): ${idea}`,
+    fuente: ficha + '\n' + idea, frasesProhibidas: frasesDeFicha(m.perfil as Perfil), maxTokens: 2500 }
+  const r = esCarrusel
+    ? await ia.ejecutar({ ...comun, tarea: 'redactar_pieza', esquema: EsquemaCarrusel, sistema: sistemaCarrusel,
+        campoTexto: (s) => `${s.caption} ${s.hashtags.join(' ')} ${s.diapositivas.map((d) => `${d.titular} ${d.subtitulo}`).join(' ')}` })
+    : await ia.ejecutar({ ...comun, tarea: 'redactar_pieza', esquema: EsquemaPieza, sistema: sistemaPieza,
+        campoTexto: (s) => `${s.caption} ${s.hashtags.join(' ')} ${s.titular} ${s.subtitulo}` })
   if (!r.ok) {
     await db.from('piezas').update({ estado: 'error_generacion', generacion: { error: r.detalle } }).eq('id', piezaId).eq('org_id', m.org_id)
     return ir(marcaId, 'error', MENSAJE_IA[r.motivo] ?? r.detalle)
   }
   try {
-    const png = await renderPieza({ titular: r.salida.titular, subtitulo: r.salida.subtitulo, marca: m.nombre, colores: (m.perfil as Perfil).colores })
-    const ruta = `${m.org_id}/${piezaId}/${randomUUID()}.png`
-    const { error: up } = await db.storage.from('piezas').upload(ruta, png, { contentType: 'image/png', upsert: false })
-    if (up) throw new Error('subida')
-    const { data: pub } = db.storage.from('piezas').getPublicUrl(ruta)
-    const caption = `${r.salida.caption}\n\n${r.salida.hashtags.map((h) => (h.startsWith('#') ? h : `#${h}`)).join(' ')}`.trim()
+    const salida = r.salida as { caption: string; hashtags: string[]; titular?: string; subtitulo?: string; diapositivas?: { titular: string; subtitulo: string }[] }
+    const slides = salida.diapositivas ?? [{ titular: salida.titular!, subtitulo: salida.subtitulo }]
+    const urls: string[] = []
+    for (const d of slides) {
+      const png = await renderPieza({ titular: d.titular, subtitulo: d.subtitulo, marca: m.nombre, colores: (m.perfil as Perfil).colores })
+      const ruta = `${m.org_id}/${piezaId}/${randomUUID()}.png`
+      const { error: up } = await db.storage.from('piezas').upload(ruta, png, { contentType: 'image/png', upsert: false })
+      if (up) throw new Error('subida')
+      urls.push(db.storage.from('piezas').getPublicUrl(ruta).data.publicUrl)
+    }
+    const caption = `${salida.caption}\n\n${salida.hashtags.map((h) => (h.startsWith('#') ? h : `#${h}`)).join(' ')}`.trim()
     await db.from('piezas').update({
-      estado: 'por_aprobar', caption, media_urls: [pub.publicUrl], costo_usd: r.meta.costo_usd,
+      estado: 'por_aprobar', caption, media_urls: urls, costo_usd: r.meta.costo_usd, tipo: esCarrusel ? 'carrusel' : 'post',
       generacion: { proveedor: r.meta.proveedor, modelo: r.meta.modelo, fallback_de: r.meta.fallback_de, colores: coloresDeFicha((m.perfil as Perfil).colores) },
     }).eq('id', piezaId).eq('org_id', m.org_id)
   } catch {

@@ -74,7 +74,7 @@ export default async function Plan({ params, searchParams }: { params: Promise<{
           <article key={p.id} className="tarjeta">
             <strong>{p.tipo}</strong> · {ESTADO_PIEZA[p.estado] ?? p.estado}
             <Ayuda que="El estado de la pieza en su camino a publicarse." afecta="Solo las aprobadas se publican." ejemplo="Por aprobar → Aprobada → publicada." origen="Lo calcula AiUDA según lo que hiciste." />
-            {p.media_urls?.[0] && /* eslint-disable-next-line @next/next/no-img-element */ <img src={p.media_urls[0]} alt="Vista previa de la pieza" style={{ width: '100%', maxWidth: 320, borderRadius: 'var(--radio-s)', display: 'block', margin: '12px 0' }} />}
+            <div style={{ display: 'flex', gap: 8, overflowX: 'auto', margin: '12px 0' }}>{(p.media_urls ?? []).map((u: string, i: number) => /* eslint-disable-next-line @next/next/no-img-element */ <img key={u} src={u} alt={`Vista previa, imagen ${i + 1}`} style={{ width: 240, flex: 'none', borderRadius: 'var(--radio-s)' }} />)}</div>
             {p.caption && <p style={{ whiteSpace: 'pre-wrap' }}>{p.caption}</p>}
             {p.costo_usd != null && <p className="suave">Costo de IA de esta pieza: <FuenteDato valor={Number(p.costo_usd).toFixed(4)} unidad=" US$" origen="registro de llamadas de IA (ledger)" /></p>}
             {['por_generar', 'error_generacion', 'por_aprobar'].includes(p.estado) && (

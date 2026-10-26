@@ -46,3 +46,18 @@ ${REGLAS}
 - Máximo 2.200 caracteres en el caption, máximo 15 hashtags relevantes, 1 llamado a la acción que use el canal de cierre de la ficha.
 - "titular" (máx. 60 caracteres) y "subtitulo" (máx. 90) son el texto de la imagen: cortos, sin cifras salvo que estén en la ficha.
 Responde SOLO un JSON: {"caption": string, "hashtags": string[], "titular": string, "subtitulo": string}`
+
+// Carrusel: 3 a 8 diapositivas (la 1.ª es la portada). Cada una es una imagen vectorial.
+export const EsquemaCarrusel = z.object({
+  caption: z.string().min(10).max(2200),
+  hashtags: z.array(z.string().regex(/^#?[\p{L}\p{N}_]+$/u)).max(15),
+  diapositivas: z.array(z.object({ titular: z.string().min(3).max(60), subtitulo: z.string().max(90).default('') })).min(3).max(8),
+})
+export type CarruselTexto = z.infer<typeof EsquemaCarrusel>
+
+export const sistemaCarrusel = `Eres el redactor de un community manager. Escribes UN carrusel de Instagram (3 a 8 diapositivas) listo para aprobar.
+${REGLAS}
+- La diapositiva 1 es la portada: un gancho claro. La última cierra con un llamado a la acción usando el canal de cierre de la ficha.
+- Cada diapositiva: "titular" (máx. 60 caracteres) y "subtitulo" (máx. 90), sin cifras salvo que estén en la ficha.
+- Caption máximo 2.200 caracteres y máximo 15 hashtags.
+Responde SOLO un JSON: {"caption": string, "hashtags": string[], "diapositivas": [{"titular": string, "subtitulo": string}]}`

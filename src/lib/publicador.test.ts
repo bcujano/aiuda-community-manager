@@ -63,6 +63,13 @@ describe('publicador', () => {
     expect(llamadas).not.toContain('POST media')
     expect(tablas.publicaciones[0]).toMatchObject({ estado: 'publicada', id_externo: 'POST1' })
   })
+  it('carrusel: hijos → contenedor padre → publica una sola vez', async () => {
+    tablas.piezas[0] = { ...tablas.piezas[0], tipo: 'carrusel', media_urls: ['https://x/1.png', 'https://x/2.png', 'https://x/3.png'] }
+    fetchSim(); await procesarCola()
+    expect(llamadas.filter((l) => l === 'POST media')).toHaveLength(4) // 3 hijos + padre
+    expect(llamadas.filter((l) => l === 'POST media_publish')).toHaveLength(1)
+    expect(tablas.publicaciones[0].estado).toBe('publicada')
+  })
   it('no publica piezas no aprobadas', async () => {
     tablas.piezas[0].estado = 'por_aprobar'; fetchSim()
     await procesarCola()

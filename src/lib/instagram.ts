@@ -11,11 +11,11 @@ async function json(r: Response) {
   return { j, ok: r.ok }
 }
 
-export async function crearContenedorImagen(ig: string, token: string, imageUrl: string, caption: string): Promise<string> {
+async function crearContenedor(ig: string, token: string, campos: Record<string, string>): Promise<string> {
   let r: Response
   try {
     r = await fetch(`${base(ig)}/media`, { method: 'POST', signal: AbortSignal.timeout(30_000),
-      body: new URLSearchParams({ image_url: imageUrl, caption, access_token: token }) })
+      body: new URLSearchParams({ ...campos, access_token: token }) })
   } catch { throw new ErrorIg('incierto', 'No hubo respuesta de Instagram al crear el contenedor.') }
   const { j, ok } = await json(r)
   if (!ok || typeof j.id !== 'string') {
@@ -24,6 +24,10 @@ export async function crearContenedorImagen(ig: string, token: string, imageUrl:
   }
   return j.id
 }
+
+export const crearContenedorImagen = (ig: string, token: string, imageUrl: string, caption: string) => crearContenedor(ig, token, { image_url: imageUrl, caption })
+export const crearHijoCarrusel = (ig: string, token: string, imageUrl: string) => crearContenedor(ig, token, { image_url: imageUrl, is_carousel_item: 'true' })
+export const crearContenedorCarrusel = (ig: string, token: string, hijos: string[], caption: string) => crearContenedor(ig, token, { media_type: 'CAROUSEL', children: hijos.join(','), caption })
 
 export async function estadoContenedor(token: string, creationId: string): Promise<'FINISHED' | 'IN_PROGRESS' | 'ERROR' | 'EXPIRED' | string> {
   for (let i = 0; i < 3; i++) {

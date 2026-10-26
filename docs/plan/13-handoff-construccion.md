@@ -155,10 +155,10 @@ REGLAS DURAS
 **Migraciones pendientes de pegar (Byron), en orden:** `sql/002_ia_y_planes.sql`, `sql/003_storage_y_publicador.sql`, `sql/004_cron_publicador.sql` (plantilla con dos textos por reemplazar en el editor de Supabase).
 **Pendientes (con motivo):**
 - Etiqueta `diseno-base-v0` (local, sobre `c6c8e7c`): el Git de la sesión no sube etiquetas.
-- Carrusel/reel/story y video: no construidos (el plan hoy solo pide posts). Investigar video (Veo) pendiente.
+- Reel, story y video: no construidos (carrusel y post sí, sin probar contra Instagram real). Investigar video (Veo) pendiente.
 - Facebook (directo), TikTok/YouTube asistido: no construidos.
 - Rastreo de ficha ≥80 %, diagnóstico, regalo «Tu Semana 1 lista» (E17): no construidos.
-- Programar publicación por fecha/hora: hoy se publica «ahora».
+- (hecho) Programar por fecha y hora en la zona de la organización.
 - Sentry, invitaciones de miembros, i18n, capturas Refero: no hechos.
 - Verificar modelos/precios de OpenAI y Gemini, versión de Graph, límites de Hobby/Supabase (§8).
 - Rama sobrante en GitHub `claude/gracious-goldberg-8pmaln` (no es de esta sesión): borrar desde GitHub → Branches.

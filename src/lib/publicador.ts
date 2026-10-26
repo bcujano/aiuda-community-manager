@@ -1,6 +1,6 @@
 import { supabaseAdmin } from '@/lib/supabase/admin'
 import { descifrar } from '@/lib/cifrado'
-import { crearContenedorImagen, estadoContenedor, ErrorIg, publicarContenedor } from '@/lib/instagram'
+import { crearContenedorCarrusel, crearContenedorImagen, crearHijoCarrusel, estadoContenedor, ErrorIg, publicarContenedor } from '@/lib/instagram'
 
 type Fila = { id: string; org_id: string; pieza_id: string; conexion_id: string; plataforma: string; creation_id: string | null; id_externo: string | null; fase: string | null }
 
@@ -20,7 +20,7 @@ export async function procesarCola(limite = 5) {
       if (f.plataforma !== 'instagram') { await fin({ estado: 'error', error: 'Esta red aún no se publica directo.' }); out.errores++; continue }
 
       const { data: cx } = await db.from('conexiones').select('cuenta_externa_id, token_cifrado, estado').eq('id', f.conexion_id).eq('org_id', f.org_id).maybeSingle()
-      const { data: pz } = await db.from('piezas').select('caption, media_urls, estado').eq('id', f.pieza_id).eq('org_id', f.org_id).maybeSingle()
+      const { data: pz } = await db.from('piezas').select('caption, media_urls, estado, tipo').eq('id', f.pieza_id).eq('org_id', f.org_id).maybeSingle()
       if (!cx || cx.estado !== 'activa') { await fin({ estado: 'error', error: 'La conexión de Instagram necesita reconectarse.' }); out.errores++; continue }
       // Defensa: nunca se publica algo que no esté aprobado.
       if (!pz || pz.estado !== 'aprobada' || !pz.media_urls?.[0]) { await fin({ estado: 'error', error: 'La pieza no está aprobada o no tiene imagen.' }); out.errores++; continue }
@@ -28,7 +28,12 @@ export async function procesarCola(limite = 5) {
 
       let creation = f.creation_id
       if (!creation) {
-        creation = await crearContenedorImagen(cx.cuenta_externa_id, token, pz.media_urls[0], pz.caption ?? '')
+        if (pz.tipo === 'carrusel') {
+          // Hijos primero (si se corta aquí, quedan contenedores huérfanos que Instagram expira solos; no se publica nada).
+          const hijos: string[] = []
+          for (const u of pz.media_urls) hijos.push(await crearHijoCarrusel(cx.cuenta_externa_id, token, u))
+          creation = await crearContenedorCarrusel(cx.cuenta_externa_id, token, hijos, pz.caption ?? '')
+        } else creation = await crearContenedorImagen(cx.cuenta_externa_id, token, pz.media_urls[0], pz.caption ?? '')
         await db.from('publicaciones').update({ creation_id: creation, fase: 'contenedor_creado' }).eq('id', f.id).eq('org_id', f.org_id)
       }
       let st = await estadoContenedor(token, creation)
