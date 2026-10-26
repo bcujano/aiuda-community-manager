@@ -12,6 +12,6 @@ run "pg_ctl -D $D -o '-p 54399 -k /tmp -c listen_addresses=' -l $D/log -w start 
 P="psql -h /tmp -p 54399 -U postgres -v ON_ERROR_STOP=1 -q"
 run "$P -d postgres -c 'create database t'" ; P="$P -d t"
 run "$P -f pruebas-sql/stub-supabase.sql"
-for f in sql/00*.sql; do run "$P -f $f" >/dev/null; done
+for f in sql/00*.sql; do grep -q "__CRON_SECRET__" "$f" && continue; run "$P -f $f" >/dev/null; done  # las plantillas con pg_cron/vault no corren aquí
 run "$P -f pruebas-sql/seguridad.sql"
 echo "SQL: suite de seguridad OK"
